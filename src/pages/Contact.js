@@ -1,16 +1,11 @@
 import React from "react";
-import ContactBanner from '../components/ContactBanner';
-import ContactForm from '../components/ContactForm';
-
-
-
+import ContactBanner from "../components/ContactBanner";
 
 function aboutPage() {
   return (
     <div className="aboutpage">
       <ContactBanner />
-      <ContactForm />
-    </div> 
+    </div>
   );
 }
 

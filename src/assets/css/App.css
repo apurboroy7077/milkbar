@@ -676,14 +676,13 @@ header .header_top nav > ul > li.expanded img {
 .main_home_banner_content {
   top: 0;
   left: 0;
-
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.65) 10%,
-    rgba(0, 0, 0, 0) 65%,
-    #131313
-  );
+}
+.main_home_banner_content .grandient-banner-area {
   background: linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, #131313 100%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 50%;
 }
 .bannerbox {
   position: absolute;
@@ -1042,7 +1041,7 @@ a.follow_button {
   top: 0;
 }
 .inner_page_banner::after {
-  background: linear-gradient(0deg, rgb(19 19 19) 10%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(180deg, rgba(19, 19, 19, 0) 31%, #131313 100%);
   height: 50%;
   bottom: 0;
 }
@@ -1051,23 +1050,59 @@ a.follow_button {
   margin: -180px auto 0;
   padding: 0 15px;
 }
+.main_about_banner {
+  margin-bottom: 800px;
+}
 
 /* contact page */
+.contact_form_outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .contact_form_wrap {
-  max-width: 900px;
-  margin: -180px auto 0;
+  max-width: 1215px;
+  z-index: 1;
 }
 .option_types_radios {
-  max-width: 630px;
-  margin: auto;
   gap: 12px;
 }
 .contact_form_wrap .form-group {
   text-align: center;
   margin-bottom: 45px;
+  width: 100%;
+}
+.contact_form_wrap .form-group input::placeholder {
+  text-align: start;
+  color: #fff;
+  font-family: "SF Pro Rounded";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  opacity: 0.5;
+}
+.contact_form_wrap .form-groups-container {
+  display: flex;
+  gap: 36px;
+}
+.contact_form_wrap .form-groups-container .form-group {
+  max-width: 360px;
 }
 .contact_form_wrap .form-group.textareafld {
   padding: 40px 0;
+  max-width: 360px;
+}
+.contact_form_wrap .form-group.textareafld label {
+  color: #fff;
+  font-family: "SF Pro Rounded";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  opacity: 0.5;
 }
 .option_types_radios input[type="checkbox"] + label {
   padding: 20px 45px 17px;
@@ -1082,7 +1117,6 @@ a.follow_button {
 }
 .contact_form_wrap .form-group input,
 .contact_form_wrap .form-group textarea {
-  max-width: 360px;
   width: 100%;
   background: transparent;
   border-width: 0 0 0.6px 0;
@@ -1091,6 +1125,26 @@ a.follow_button {
   letter-spacing: 0.05px;
   margin: 0 auto;
   color: #fff;
+}
+.contact_form_wrap .form-group textarea {
+  border-bottom: 0.6px solid #fff;
+}
+.option-type-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.what-do-you-need-label {
+  color: #fff;
+  font-family: "SF Pro Rounded";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  opacity: 0.5;
+  width: 100%;
+  text-align: start;
 }
 .contact_form_wrap .form-group input[type="text"],
 .contact_form_wrap .form-group input[type="email"] {
@@ -1102,9 +1156,29 @@ a.follow_button {
   color: #fff;
   font-size: 18px;
   font-family: "SF Pro Rounded";
+  border-bottom: 0.6px solid #fff;
+  max-width: 360px;
+  width: 100%;
+  text-align: start;
 }
 .contact_form_wrap .form-group textarea {
   height: 120px;
+}
+.send-message {
+  display: flex;
+  justify-content: flex-start;
+}
+.send-message-btn {
+  color: #fff;
+  text-align: center;
+  font-family: "Messina Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border-bottom: 0.6px solid #fff;
 }
 .contact_form_wrap button {
   background: transparent;

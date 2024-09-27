@@ -9,7 +9,9 @@ function HomeBanner() {
       <video autoPlay muted loop playsInline className="main_home_banner_video">
         <source src={HomeBackgroundVideo} type="video/mp4" />
       </video>
-      <div className="main_home_banner_content position-absolute w-100 h-100"></div>
+      <div className="main_home_banner_content position-absolute w-100 h-100">
+        <div className="grandient-banner-area" />
+      </div>
       <div className="bannerbox">
         {/* <img src={BannerImage} alt="Logo" style={{ width: '100%', position: "absolute", height:  }} /> */}
         <div className="home_banner_bottom text-light position-relative">
