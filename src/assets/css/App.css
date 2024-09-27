@@ -472,6 +472,7 @@ header.sticky a.header_logo img {
 header .header_top nav {
   margin-top: 10px;
   padding: 0 30px px;
+  margin-left: -74px;
 }
 header .header_top nav > ul {
   margin: 0;
