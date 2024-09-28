@@ -1,11 +1,25 @@
+import { useEffect, useState } from "react";
+
 function WhatWeDo({ project, content }) {
+  const [whatwedo, setWhatwedo] = useState([]);
+
+  useEffect(() => {
+    setWhatwedo(project?.whatWeDo.split(","));
+  }, [project]);
+
   if (project) {
     return (
       <div className="what_we_do position-relative">
         <div className="plr-100 text-center fw-200">
           <h6 className="text-uppercase m-0">What We Do</h6>
-          <div className="dotdivider text-center"><span></span></div>
-          <p>{project?.whatWeDo}</p>
+          <div className="dotdivider text-center">
+            <span></span>
+          </div>
+          <ul className="whatwedo-list">
+            {whatwedo.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
     );
@@ -14,7 +28,9 @@ function WhatWeDo({ project, content }) {
       <div className="what_we_do position-relative">
         <div className="plr-100 text-center fw-200">
           <h6 className="text-uppercase m-0">What We Do</h6>
-          <div className="dotdivider text-center"><span></span></div>
+          <div className="dotdivider text-center">
+            <span></span>
+          </div>
           {content ? (
             <ul className="whatwedo-list">
               {content.map((item, index) => (

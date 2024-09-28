@@ -34,7 +34,7 @@ export default function SingleProjectGallery() {
       window.removeEventListener("resize", changeWindowWidth); // Cleanup listener on unmount
     };
   }, []);
-  console.log(windowWidth);
+
   useEffect(() => {
     let ctx = gsap.context(() => {
       let tl = gsap.timeline({
