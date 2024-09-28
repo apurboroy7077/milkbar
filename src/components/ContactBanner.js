@@ -12,7 +12,7 @@ function ContactBanner() {
           <img src={BannerImage} alt="Logo" />
         </picture>
         <div className="main_home_banner_content position-absolute w-100 h-100">
-          <div className="plr-100 h-100 d-flex align-items-center justify-content-center position-relative">
+          <div className="plr-100 h-100 d-flex justify-content-center position-relative">
             <ContactForm />
           </div>
         </div>
