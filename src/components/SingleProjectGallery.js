@@ -19,22 +19,22 @@ gsap.registerPlugin(ScrollTrigger);
 export default function SingleProjectGallery() {
   const pinContainerRef = useRef(null);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const checkMobile = () => {
-    setIsMobile(window.innerWidth < 768); // Adjust the width as needed
+  const changeWindowWidth = () => {
+    setWindowWidth(window.innerWidth); // Adjust the width as needed
   };
 
   useEffect(() => {
-    checkMobile(); // Check on mount
+    changeWindowWidth(); // Check on mount
 
-    window.addEventListener("resize", checkMobile); // Listen for resize events
+    window.addEventListener("resize", changeWindowWidth); // Listen for resize events
 
     return () => {
-      window.removeEventListener("resize", checkMobile); // Cleanup listener on unmount
+      window.removeEventListener("resize", changeWindowWidth); // Cleanup listener on unmount
     };
   }, []);
-
+  console.log(windowWidth);
   useEffect(() => {
     let ctx = gsap.context(() => {
       let tl = gsap.timeline({
@@ -60,7 +60,7 @@ export default function SingleProjectGallery() {
         ".gallery_image_2",
         {
           duration: 1,
-          x: isMobile ? -100 : -300,
+          x: windowWidth < 768 ? (windowWidth < 480 ? -50 : -100) : -300,
           y: -50,
         },
         0
@@ -85,7 +85,7 @@ export default function SingleProjectGallery() {
         ".gallery_image_3",
         {
           duration: 1,
-          x: isMobile ? 130 : 300,
+          x: windowWidth < 768 ? (windowWidth < 480 ? 100 : 200) : 300,
           y: 0,
         },
         0
@@ -104,7 +104,7 @@ export default function SingleProjectGallery() {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [windowWidth]);
   return (
     <>
       <div className="home_gallery_block overflow-hidden ptb-120">
