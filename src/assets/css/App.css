@@ -2905,6 +2905,17 @@ input[type="file"]::-webkit-file-upload-button {
     top: unset;
   }
 }
+@media (max-width: 1274px) {
+  .service_tab_item {
+    column-gap: 12px;
+  }
+  .service-name h3 {
+    font-size: 24px;
+  }
+  .service_tab_item .service-name {
+    min-width: 205px;
+  }
+}
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .featured_work_slider .workbox_head {
     margin: 0px;
@@ -2942,9 +2953,6 @@ input[type="file"]::-webkit-file-upload-button {
   }
   .service-name {
     min-width: 150px;
-  }
-  .service_tab_item {
-    gap: 25px;
   }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -2998,6 +3006,24 @@ input[type="file"]::-webkit-file-upload-button {
   h1,
   h2 {
     font-size: 28px;
+  }
+  .gallery_content h4 {
+    color: #fff;
+    font-family: "SF Pro Rounded";
+    font-size: 13.729px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18.721px; /* 136.364% */
+  }
+  .gallery_content .gallery_content_2 {
+    width: 287px;
+  }
+  .gallery_content .gallery_content3 {
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery_content1 {
+    left: -50%;
   }
   .showonmobile {
     display: block;
@@ -3447,7 +3473,6 @@ input[type="file"]::-webkit-file-upload-button {
   }
   .bannerbox {
     max-width: 270px;
-    margin-top: 30px;
     height: calc(100% - 238px);
   }
   .main_home_banner picture img,
@@ -3609,6 +3634,15 @@ input[type="file"]::-webkit-file-upload-button {
   .contact_form_wrap .form-groups-container {
     flex-direction: column;
     gap: 0px;
+  }
+  .gallery_image_3 {
+    margin-top: 50px;
+    height: 333px;
+    margin-left: 50px;
+  }
+  .gallery_image_4 {
+    margin-top: -50px;
+    height: 166.407px;
   }
 }
 @media (max-width: 375px) {
