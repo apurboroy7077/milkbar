@@ -104,7 +104,24 @@ function ServiceTabsPanel() {
   const makeActiveItem = () => {
     setActiveIndex(1);
   };
-  console.log(activeIndex);
+  const increaseActiveIndex = () => {
+    if (activeIndex + 1 < services.length) {
+      setIsVisible(false);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 300);
+      setActiveIndex((index) => index + 1);
+    }
+  };
+  const decreaseActiveIndex = () => {
+    if (activeIndex - 1 >= 0) {
+      setIsVisible(false);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 300);
+      setActiveIndex((index) => index - 1);
+    }
+  };
 
   return (
     <>
@@ -272,20 +289,33 @@ function ServiceTabsPanel() {
               isVisible ? "service_tab_image_active" : ""
             }`}
           >
+            <div className="active_service_content">
+              <div className="active_service_title">
+                {services[activeIndex]?.title}
+              </div>
+              <div className="active_service_description">
+                {services[activeIndex]?.description}
+              </div>
+            </div>
             <img
               src={config.BASE_URL + imageArray[activeIndex]?.image}
               alt="services"
             />
-          </div>
-
-          <div className="slider_nav d-flex align-items-center justify-content-center nowrap">
-            <button className="service-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center">
-              <img src={LeftArrow} alt="Left Arrow" />
-            </button>
-            <div className="service-swiper-custom-scrollbar swiper-pagination"></div>
-            <button className="service-arrow-right arrow common_slider_arrow d-flex align-items-center justify-content-center">
-              <img src={RightArrow} alt="Right Arrow" />
-            </button>
+            <div className="slider_nav d-flex align-items-center justify-content-center nowrap">
+              <button
+                className="service-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center"
+                onClick={decreaseActiveIndex}
+              >
+                <img src={LeftArrow} alt="Left Arrow" />
+              </button>
+              <div className="service-swiper-custom-scrollbar swiper-pagination"></div>
+              <button
+                className="service-arrow-right arrow common_slider_arrow d-flex align-items-center justify-content-center"
+                onClick={increaseActiveIndex}
+              >
+                <img src={RightArrow} alt="Right Arrow" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
