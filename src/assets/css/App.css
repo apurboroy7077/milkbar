@@ -453,9 +453,9 @@ header.sticky {
   position: sticky;
   top: 0;
   z-index: 9;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4.44444465637207px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
 }
 .header_top {
   width: 100%;
@@ -672,6 +672,7 @@ header .header_top nav > ul > li.expanded img {
 }
 .main_home_banner_video {
   width: 100%;
+  min-height: 500px;
 }
 .main_home_banner_content {
   top: 0;
@@ -1714,15 +1715,47 @@ a.follow_button {
   letter-spacing: 0.533px;
   margin: 9px;
   margin-bottom: 35px;
+  text-transform: uppercase;
 }
 .service_tabs_wrapper {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
 }
 .service_tab_images,
 .service_tab_items {
   flex: 0 0 auto;
   width: 50%;
+}
+.service_tab_items {
+  display: flex;
+  gap: 70px;
+  width: 100%;
+}
+.service_tab_item_title_container,
+.service_tab_item_content_container {
+  height: 100%;
+}
+.service_tab_item_content_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service_tab_item_content_container .get_a_quote_btn {
+  margin-top: 23px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Messina Sans";
+  font-size: 10.667px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.533px;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 8px;
 }
 .service_tab_items .service-name {
   color: #fff;
@@ -1754,6 +1787,7 @@ a.follow_button {
 }
 .service_tabs_wrapper .swiper-slide img {
   width: 100%;
+  max-height: 400px;
 }
 .service_tab_images .swiper-slide {
   display: flex;
@@ -1794,7 +1828,21 @@ a.follow_button {
   opacity: 0;
   visibility: hidden;
 }
-.service_tab_item.active .service_desc {
+.service_tab_items .active .service_desc {
+  opacity: 1;
+  visibility: visible;
+}
+.service_tab_images {
+  display: flex;
+  align-items: center;
+}
+.service_tab_images img {
+  transition: all ease 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  height: fit-content;
+}
+.service_tab_image_active img {
   opacity: 1;
   visibility: visible;
 }
@@ -1858,26 +1906,20 @@ a.follow_button {
 .site_footer:after {
   content: "";
   position: absolute;
-  top: 199px;
+  top: -1px;
   width: 100%;
-  height: calc(100% - 199px);
+  height: calc(100% + 1px);
   background: linear-gradient(0deg, rgba(19, 19, 19, 0) -100%, #131313 100%);
 }
-.footer_bg_image {
+.footer_bg_video {
   position: absolute;
   top: auto;
-  height: calc(100% - 200px);
-  width: 100%;
-  bottom: 0;
-  background: url(../images/footer-background.jpg) lightgray 50% / cover
-    no-repeat;
-  filter: blur(0.4444444477558136px);
-}
-.footer_bg_image img {
   height: 100%;
   width: 100%;
+  bottom: 0;
+  filter: blur(0.4444444477558136px);
+  object-position: bottom;
   object-fit: cover;
-  object-position: center;
 }
 .footer_wrapper {
   padding: 0 100px;
@@ -2105,6 +2147,30 @@ input:-webkit-autofill:focus {
   width: 100%;
   height: 100vh;
   border-radius: 20px;
+}
+.view-all-projects-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.view-all-projects-btn {
+  display: inline-flex;
+  padding: 16.8px 42px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  text-align: center;
+  font-family: "SF Pro Rounded";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.8px;
 }
 
 .projects-header {
@@ -2499,6 +2565,11 @@ input[type="file"]::-webkit-file-upload-button {
 }
 .detail_image_item {
   text-align: right;
+}
+.mobile-header-container {
+  display: none;
+  width: 100%;
+  height: 27px;
 }
 .update_details_wrap {
   background: #1f2937;
@@ -2897,10 +2968,6 @@ input[type="file"]::-webkit-file-upload-button {
 /* Responsive Css */
 
 @media (min-width: 768px) {
-  .service_tab_items {
-    height: 500px;
-    overflow-y: auto;
-  }
   .featured_work_slider .swiper-slide.swiper-slide-active .common_work_slide {
     height: 617px;
     margin: 0;
@@ -2991,7 +3058,7 @@ input[type="file"]::-webkit-file-upload-button {
     min-width: 132px;
   }
   .main_home_banner_video {
-    height: 953px;
+    height: 770px;
     object-fit: cover;
   }
 }
@@ -3005,6 +3072,22 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 @media (max-width: 768px) {
+  .service_tabs_wrapper {
+    flex-direction: column;
+  }
+  .feature-signature {
+    position: absolute;
+    bottom: 46px;
+  }
+  .sticky .mobile-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+  }
+  .sticky .header_logo {
+    display: none;
+  }
   .ptb-120 {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -3039,7 +3122,7 @@ input[type="file"]::-webkit-file-upload-button {
   .header_top {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 20px;
     padding: 30px 0px;
   }
   header .header_top nav {
@@ -3210,6 +3293,9 @@ input[type="file"]::-webkit-file-upload-button {
     text-align: center;
     margin: 0 0 50px;
   }
+  .service_tab_items_wrapper {
+    width: 100%;
+  }
   .service_tab_images,
   .service_tab_items {
     flex: 0 0 auto;
@@ -3297,15 +3383,21 @@ input[type="file"]::-webkit-file-upload-button {
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
   .service_tab_items {
-    flex-direction: row !important;
+    gap: 0px;
+  }
+  .services_tab_title {
+    text-align: center;
+  }
+  .service_tab_item_title_container {
     gap: 20px;
     overflow: auto;
     flex: auto;
     flex-wrap: nowrap;
     align-items: unset !important;
+    display: flex;
     padding: 0 20px;
     justify-content: center;
   }
@@ -3460,10 +3552,6 @@ input[type="file"]::-webkit-file-upload-button {
   }
 }
 @media (max-width: 645px) {
-  .feature-signature {
-    position: absolute;
-    bottom: 88px;
-  }
   .common_work_slide_text p {
     font-size: 12px;
   }
@@ -3487,7 +3575,7 @@ input[type="file"]::-webkit-file-upload-button {
     height: auto;
   }
   .what_we_do {
-    margin-top: -161px;
+    margin-top: -100px;
   }
   .option_types_radios input[type="radio"] + label {
     padding: 16px 25px 15px;

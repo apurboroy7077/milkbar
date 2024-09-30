@@ -16,6 +16,7 @@ import config from "../config";
 
 function FeaturedWorkSlider({ projects, title }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [projectsToShow, setProjectsToShow] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,11 +27,19 @@ function FeaturedWorkSlider({ projects, title }) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  useEffect(() => {
+    if (isMobile) setProjectsToShow(projects.slice(0, 3));
+    else setProjectsToShow(projects);
+  }, [isMobile, projects]);
+
   if (!Array.isArray(projects)) {
     // console.error("Projects is not an array:", projects);
     return <div></div>;
   }
-  if (projects.length > 0) {
+  const viewAllProjects = () => {
+    setProjectsToShow(projects);
+  };
+  if (projectsToShow.length > 0) {
     return (
       <div className="featured_work_slider position-relative z-1 ptb-120">
         <h6 className="text-uppercase letter-spacing-5 font-12 text-center">
@@ -39,7 +48,7 @@ function FeaturedWorkSlider({ projects, title }) {
         {isMobile ? (
           <div className="slider_wrapper position-relative">
             <div>
-              {projects.map((project, index) => (
+              {projectsToShow.map((project, index) => (
                 <div className="swiper-slide swiper-slide-active">
                   <div className="common_work_slide  position-relative">
                     {project.featuredImage && (
@@ -58,38 +67,6 @@ function FeaturedWorkSlider({ projects, title }) {
                           {project.description}
                         </p>
                       </div>
-                      <svg
-                        width="45"
-                        height="45"
-                        viewBox="0 0 45 45"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="showdefault"
-                      >
-                        <circle
-                          cx="22.5"
-                          cy="22.5"
-                          r="22.25"
-                          stroke="white"
-                          stroke-opacity="0.5"
-                          stroke-width="0.5"
-                        />
-                        <circle
-                          cx="22.5"
-                          cy="22.5"
-                          r="11.25"
-                          fill="white"
-                          fill-opacity="0.1"
-                        />
-                        <circle
-                          cx="22.5"
-                          cy="22.5"
-                          r="11"
-                          stroke="white"
-                          stroke-opacity="0.5"
-                          stroke-width="0.5"
-                        />
-                      </svg>
                       <img
                         src={WorkSlideLogo1}
                         alt="logo"
@@ -107,6 +84,17 @@ function FeaturedWorkSlider({ projects, title }) {
                   </div>
                 </div>
               ))}
+              {projects.length > projectsToShow.length && (
+                <div className="view-all-projects-container">
+                  <button
+                    type="button"
+                    className="view-all-projects-btn"
+                    onClick={viewAllProjects}
+                  >
+                    View all projects
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         ) : (
