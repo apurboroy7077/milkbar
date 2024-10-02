@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
 import SingleProjectGallery from "../components/SingleProjectGallery";
+import ReviewSlider from "../components/reviewSlider";
 
 function App() {
   const { id } = useParams();
@@ -41,6 +42,7 @@ function App() {
       <WhatWeDo />
       <FeaturedWorkSlider projects={projects} title="Featured Work" />
       <SingleProjectGallery />
+      <ReviewSlider />
       {/* <ServicesSlider /> */}
       <ServiceTabsPanel />
       <FollowMilkbar />
