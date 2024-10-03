@@ -22,17 +22,17 @@ export default function SingleProjectGallery() {
     <>
       <div className="home_gallery_block overflow-hidden">
         <div className="gallery-title-container mobile-version">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="5"
-            height="5"
-            viewBox="0 0 5 5"
-            fill="none"
-          >
-            <circle cx="2.22222" cy="2.22222" r="2.22222" fill="#A2BB3C" />
-          </svg>
           <div className="gallery-title-content">
             <h3>full stack development meets experiential design</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              fill="none"
+            >
+              <circle cx="2.22222" cy="2.22222" r="2.22222" fill="#A2BB3C" />
+            </svg>
             <ul>
               <li>app development</li>
               <li>custom data management solutions</li>

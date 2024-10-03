@@ -125,7 +125,10 @@ function ServiceTabsPanel() {
 
   return (
     <>
-      <div className="services_tabs_panel position-relative pb-120">
+      <div
+        className="services_tabs_panel position-relative pb-120"
+        id="milkbar-services"
+      >
         <div className="service_tabs_wrapper position-relative">
           {/* <div className='service_tab_items hideonmobile'> */}
           <div className="service_tab_items_wrapper">
@@ -203,87 +206,6 @@ function ServiceTabsPanel() {
               </div>
             </div>
           </div>
-
-          {/* <Swiper
-                            onSwiper={setThumbsSwiper}
-                            loop={false}
-                            direction={'vertical'}
-                            spaceBetween={35}
-                            slidesPerView={5}
-                            freeMode={true}
-                            watchSlidesProgress={true}
-                            modules={[FreeMode, Thumbs]}
-                            className="mySwiper"
-                        >
-                          
-                            <SwiperSlide>
-                                <div className='service_tab_item'>
-                                    <div className='service-name'>
-                                        <h3>consulting</h3>
-                                    </div>
-                                    <div className='service_desc'>
-                                        <span className='icon'><img src={TabArrow} alt="Service Image" /></span>
-                                        <span className='text'>
-                                            <strong>app-like website design</strong> for portfolio, e-commerce, hospitality websites, and more.
-                                        </span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='service_tab_item'>
-                                    <div className='service-name'>
-                                        <h3>web and app design</h3>
-                                    </div>
-                                    <div className='service_desc'>
-                                        <span className='icon'><img src={TabArrow} alt="Service Image" /></span>
-                                        <span className='text'>
-                                            <strong>app-like website design</strong> for portfolio, e-commerce, hospitality websites, and more.
-                                        </span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='service_tab_item '>
-                                    <div className='service-name'>
-                                        <h3>branding</h3>
-                                    </div>
-                                    <div className='service_desc'>
-                                        <span className='icon'><img src={TabArrow} alt="Service Image" /></span>
-                                        <span className='text'>
-                                            <strong>brand design and development</strong> from logo design to ground-up concept.
-                                        </span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='service_tab_item'>
-                                    <div className='service-name'>
-                                        <h3>development</h3>
-                                    </div>
-                                    <div className='service_desc'>
-                                        <span className='icon'><img src={TabArrow} alt="Service Image" /></span>
-                                        <span className='text'>
-                                            <strong>app-like website design</strong> for portfolio, e-commerce, hospitality websites, and more.
-                                        </span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='service_tab_item'>
-                                    <div className='service-name'>
-                                        <h3>social media</h3>
-                                    </div>
-                                    <div className='service_desc'>
-                                        <span className='icon'><img src={TabArrow} alt="Service Image" /></span>
-                                        <span className='text'>
-                                            <strong>app-like website design</strong> for portfolio, e-commerce, hospitality websites, and more.
-                                        </span>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        </Swiper> */}
-
-          {/* </div> */}
           <div
             className={`service_tab_images ${
               isVisible ? "service_tab_image_active" : ""
@@ -301,21 +223,136 @@ function ServiceTabsPanel() {
               src={config.BASE_URL + imageArray[activeIndex]?.image}
               alt="services"
             />
-            <div className="slider_nav d-flex align-items-center justify-content-center nowrap">
-              <button
-                className="service-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center"
-                onClick={decreaseActiveIndex}
-              >
-                <img src={LeftArrow} alt="Left Arrow" />
-              </button>
-              <div className="service-swiper-custom-scrollbar swiper-pagination"></div>
-              <button
-                className="service-arrow-right arrow common_slider_arrow d-flex align-items-center justify-content-center"
-                onClick={increaseActiveIndex}
-              >
-                <img src={RightArrow} alt="Right Arrow" />
-              </button>
+          </div>
+        </div>
+        <div className="service_tabs_wrapper position-relative mobile-version">
+          {/* <div className='service_tab_items hideonmobile'> */}
+          <div className="service_tab_items_wrapper">
+            <h6 className="services_tab_title">Services</h6>
+            <div className="service_tab_items" ref={tabRef}>
+              {services.map((item, index) => (
+                <div
+                  className={`service_tab_item ${
+                    activeIndex === index ? "active" : ""
+                  }`} // Add 'active' class if current
+                  key={index}
+                  style={{ margin: "10px 0", cursor: "pointer" }} // Vertical spacing
+                  onClick={() => {
+                    if (mainSwiperRef.current) {
+                      mainSwiperRef.current.slideTo(index);
+                      setActiveIndex(index); // Update active index
+                    } else {
+                      console.error("Swiper reference is not set yet");
+                    }
+                  }}
+                >
+                  <div className="service-name">
+                    <h3>{item.title}</h3>
+                  </div>
+                  <div className="service_desc">
+                    <span className="icon">
+                      <img src={TabArrow} alt={`${item.title} Icon`} />
+                    </span>
+                    <span className="text">
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: renderDescription(item.description),
+                        }}
+                      />
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
+          <div className="service_tab_images">
+            <Swiper
+              ref={mainSwiperRef}
+              loop={false}
+              slidesPerView={1}
+              spaceBetween={10}
+              effect={"slide"}
+              thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+              modules={[FreeMode, EffectFade, Navigation, Pagination, Thumbs]}
+              centeredSlides={false}
+              pagination={{
+                type: "progressbar",
+                el: ".swiper-pagination",
+              }}
+              navigation={{
+                nextEl: ".service-arrow-right",
+                prevEl: ".service-arrow-left",
+              }}
+              scrollbar={{
+                draggable: true,
+                el: ".service-swiper-custom-scrollbar",
+              }}
+              breakpoints={{
+                768: {
+                  effect: "fade",
+                  crossFade: true,
+                  slidesPerView: 1,
+                  allowTouchMove: false,
+                  centeredSlides: true, // Use a colon here
+                },
+                320: {
+                  centeredSlides: true, // Use a colon here
+                  slidesPerView: 1,
+                },
+              }}
+              className="mySwiper2"
+              onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
+              onSlideChange={handleSlideChange}
+            >
+              {/* Swiper Slides */}
+              {imageArray.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={config.BASE_URL + item.image}
+                    alt={`Slide ${index + 1}`}
+                    className="hideonmobile"
+                    style={{ objectFit: "contain" }}
+                  />
+                  <div className="showonmobile service-tab-mobile">
+                    <div className="wrapper">
+                      <div className="tab_content_heading">
+                        <h3> {services[index].title}</h3>
+                      </div>
+                      <div className="tab_content_wrapper">
+                        {/* <ul>
+                                                    <li>brand direction</li>
+                                                    <li>logo + icon design</li>
+                                                    <li>photography + videography  direction</li>
+                                                    <li>copywriting</li>
+                                                </ul> */}
+
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: renderDescription(item.des),
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="mobile_tab_content showonmobile"
+                      style={{
+                        backgroundImage: `url(${config.BASE_URL + item.image})`,
+                      }}
+                    ></div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          <div className="slider_nav d-flex align-items-center justify-content-center nowrap">
+            <button className="service-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center">
+              <img src={LeftArrow} alt="Left Arrow" />
+            </button>
+            <div className="service-swiper-custom-scrollbar swiper-pagination"></div>
+            <button className="service-arrow-right arrow common_slider_arrow d-flex align-items-center justify-content-center">
+              <img src={RightArrow} alt="Right Arrow" />
+            </button>
           </div>
         </div>
       </div>

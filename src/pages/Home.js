@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
 import SingleProjectGallery from "../components/SingleProjectGallery";
-import ReviewSlider from "../components/reviewSlider";
+import ReviewSlider from "../components/ReviewSlider";
 
 function App() {
   const { id } = useParams();

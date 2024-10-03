@@ -5,6 +5,8 @@ import { Navigation, A11y, Scrollbar } from "swiper/modules";
 import WhatsappLogo from "../assets/images/wh-1.png";
 import WhatsappLogo2 from "../assets/images/wh-2.png";
 import WomanLogo from "../assets/images/woman.png";
+import LeftArrow from "../assets/images/left-arrow.svg";
+import RightArrow from "../assets/images/right-arrow.svg";
 
 export default function ReviewSlider() {
   return (
@@ -24,30 +26,30 @@ export default function ReviewSlider() {
       <Swiper
         modules={[Navigation, A11y, Scrollbar]}
         freeMode={true}
-        spaceBetween={30}
-        slidesPerView={3.8}
+        spaceBetween={100}
+        slidesPerView={2.8}
         navigation={{
-          nextEl: ".service-arrow-right",
-          prevEl: ".service-arrow-left",
+          nextEl: ".review-arrow-right",
+          prevEl: ".review-arrow-left",
         }}
         scrollbar={{
           draggable: true,
-          el: ".service-swiper-custom-scrollbar",
+          el: ".review-swiper-custom-scrollbar",
         }}
         loop={false}
         breakpoints={{
           320: {
-            slidesPerView: 1.6,
+            slidesPerView: 1.2,
             spaceBetween: 10,
             centeredSlides: true,
           },
-          769: {
+          550: {
             spaceBetween: 15,
-            slidesPerView: 2.8,
+            slidesPerView: 1.5,
           },
-          769: {
+          768: {
             spaceBetween: 15,
-            slidesPerView: 2.8,
+            slidesPerView: 1.8,
           },
           1025: {
             spaceBetween: 12,
@@ -114,6 +116,15 @@ export default function ReviewSlider() {
           </SwiperSlide>
         </div>
       </Swiper>
+      <div className="slider_nav d-flex align-items-center justify-content-center nowrap">
+        <button className="review-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center">
+          <img src={LeftArrow} alt="Image" />
+        </button>
+        <div className="review-swiper-custom-scrollbar slider_scrollbar"></div>
+        <button className="review-arrow-right arrow common_slider_arrow d-flex align-items-center justify-content-center">
+          <img src={RightArrow} alt="Image" />
+        </button>
+      </div>
     </div>
   );
 }

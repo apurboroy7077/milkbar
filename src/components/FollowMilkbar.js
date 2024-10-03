@@ -77,6 +77,9 @@ function FollowMilkbar() {
             <SwiperSlide className="follow_media_image">
               <img src={Image1} alt="IMage" />
             </SwiperSlide>
+            <SwiperSlide className="follow_media_image">
+              <img src={Image1} alt="IMage" />
+            </SwiperSlide>
           </Swiper>
         </div>
       </div>
