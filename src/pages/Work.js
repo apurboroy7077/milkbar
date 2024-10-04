@@ -5,6 +5,7 @@ import ProjectList from "../components/ProjectList";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
+import ProjectSection2 from "../components/work-page-components/ProjectSection2";
 function Work() {
   const { id } = useParams();
   const [projects, setProjects] = useState([]);
@@ -191,7 +192,9 @@ function Work() {
           </div>
         </div>
       </header>
-      <ProjectList projects={projects} />
+      {/* <ProjectList projects={projects} /> */}
+
+      <ProjectSection2 />
     </>
   );
 }
