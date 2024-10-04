@@ -11,8 +11,11 @@ import axios from "axios";
 import config from "../config";
 import SingleProjectGallery from "../components/SingleProjectGallery";
 import ReviewSlider from "../components/ReviewSlider";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function App() {
+  const isAdminRoute = window.location.pathname.startsWith("/admin");
   const { id } = useParams();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +41,7 @@ function App() {
 
   return (
     <>
+      {!isAdminRoute && <Header />}
       <HomeBanner />
       <WhatWeDo />
       <FeaturedWorkSlider projects={projects} title="Featured Work" />
@@ -46,6 +50,7 @@ function App() {
       {/* <ServicesSlider /> */}
       <ServiceTabsPanel />
       <FollowMilkbar />
+      {!isAdminRoute && <Footer />}
     </>
   );
 }

@@ -6,7 +6,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
 import ProjectSection2 from "../components/work-page-components/ProjectSection2";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 function Work() {
+  const isAdminRoute = window.location.pathname.startsWith("/admin");
   const { id } = useParams();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,7 +64,8 @@ function Work() {
   }, []);
   return (
     <>
-      <header>
+      {!isAdminRoute && <Header />}
+      <div>
         <div ref={headerDivRef} className=" overflow-hidden relative">
           <div className="md:hidden h-full">
             <img
@@ -191,10 +195,11 @@ function Work() {
             <div className="h-[5rem] bg-gradient-to-b from-transparent to-[#131313] transition-all duration-500"></div>
           </div>
         </div>
-      </header>
+      </div>
       {/* <ProjectList projects={projects} /> */}
 
       <ProjectSection2 />
+      {!isAdminRoute && <Footer />}
     </>
   );
 }
