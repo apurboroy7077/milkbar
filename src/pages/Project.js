@@ -11,8 +11,11 @@ import axios from "axios";
 import config from "../config";
 import SingleProjectGallery from "../components/SingleProjectGallery";
 import FeaturedWorkSlider from "../components/FeaturedWorkSlider";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function App() {
+  const isAdminRoute = window.location.pathname.startsWith("/admin");
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [projects, setProjects] = useState([]);
@@ -85,6 +88,7 @@ function App() {
 
   return (
     <>
+      {!isAdminRoute && <Header />}
       <ProjectBanner project={project} />
       <WhatWeDo project={project} />
       <BrandDirection project={project} brandSection={brandSection} />
@@ -92,6 +96,7 @@ function App() {
       <SeamlessBooking project={project} />
       <ProjectVerticle bookings={bookings} />
       <FeaturedWorkSlider projects={projects} title="MORE PROJECTS" />
+      {!isAdminRoute && <Footer />}
     </>
   );
 }
