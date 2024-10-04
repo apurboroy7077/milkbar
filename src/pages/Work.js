@@ -62,11 +62,21 @@ function Work() {
     <>
       <header>
         <div ref={headerDivRef} className=" overflow-hidden relative">
-          <img
-            src="/images/landing-page/header-image.jpg"
-            className="h-full w-full object-cover object-center md:object-fit  xl:object-[center_-35rem]  -scale-x-100"
-            alt=""
-          />
+          <div className="md:hidden h-full">
+            <img
+              src="/images/landing-page/hero-bg-mobile.png"
+              className="h-full w-full object-cover object-center"
+              alt=""
+            />
+          </div>
+
+          <div className="hidden md:block">
+            <img
+              src="/images/landing-page/header-image.jpg"
+              className="h-full w-full object-cover object-center md:object-fit  xl:object-[center_-35rem]  -scale-x-100"
+              alt=""
+            />
+          </div>
           <div
             ref={headerRef}
             className="bg-black bg-opacity-80 lg:bg-opacity-70 w-full h-fit absolute top-0 "
