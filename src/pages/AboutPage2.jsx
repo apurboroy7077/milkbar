@@ -20,7 +20,7 @@ const AboutPage2 = () => {
             />
             <div className=" absolute top-0 w-full h-full">
               <div className="w-full h-full flex items-end">
-                <div className="bg-[black] bg-opacity-50 backdrop-blur-sm w-full h-[60%] overflow-scroll">
+                <div className="bg-[black] bg-opacity-50 backdrop-blur-sm w-full h-[60%]">
                   <div className="px-5 py-10">
                     <div>
                       <div className="flex gap-3 items-center">
@@ -60,7 +60,7 @@ const AboutPage2 = () => {
                 <div className="w-full h-full flex ">
                   <div className=" w-[60%] xl:w-[65%] bg-[black] bg-opacity-50 backdrop-blur-sm h-full ">
                     <div className="flex justify-end items-center h-full">
-                      <div className="px-10 xl:px-16 py-10 w-[90%] lg:w-[80%] xl:w-[80%]">
+                      <div className="px-10 xl:pl-16 xl:pr-[175px] py-10 w-[90%] lg:w-[80%] xl:w-[80%]">
                         <div>
                           <div className="flex gap-3 items-center">
                             <div className="bg-[#a2bb3c] h-[0.8rem] w-[0.8rem] rounded-full"></div>
