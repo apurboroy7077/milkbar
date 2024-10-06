@@ -45,7 +45,6 @@ function Work() {
         if (headerDivRef.current) {
           const headerDiv = headerDivRef.current;
           headerDiv.style.height = heightOfHeaderDiv - 2 + "px"; // -2 for real mobile issue
-          console.log("function activated");
         }
       }
     };

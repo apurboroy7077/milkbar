@@ -1,6 +1,7 @@
 import React from "react";
 import ProjectSectionSmallScreen from "./ProjectSectionSmallScreen";
 import ProjectSectionBigScreen from "./ProjectSectionBigScreen";
+import useProjectSectionCustomHook from "../../hooks/project-section-in-work-page/useProjectSectionCustomHook";
 
 const ProjectSection2 = () => {
   const data = [
@@ -53,13 +54,14 @@ const ProjectSection2 = () => {
       id: Math.random(),
     },
   ];
+  const { projectsData } = useProjectSectionCustomHook();
 
   return (
     <section>
       <div className="pt-10 md:pt-32 lg:pt-[13rem] flex justify-center items-center bg-[#131313] px-5">
         <div className="max-w-screen-xl w-full  py-10 ">
-          <ProjectSectionSmallScreen data={data} />
-          <ProjectSectionBigScreen data={data} />
+          <ProjectSectionSmallScreen projectsData={projectsData} />
+          <ProjectSectionBigScreen projectsData={projectsData} />
         </div>
       </div>
     </section>

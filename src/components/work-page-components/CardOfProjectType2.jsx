@@ -1,4 +1,6 @@
 import React from "react";
+import FeaturedImageOrVideo from "./FeaturedImageOrVideo";
+import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
 
 const CardOfProjectType2 = (props) => {
   const { data } = props;
@@ -11,13 +13,15 @@ const CardOfProjectType2 = (props) => {
     videoResolutionType,
   } = data;
 
+  const { bannerImage, featuredImage, title, description } = data;
+
   return (
     <>
       <div>
         <div className="h-[15rem] sm:h-[20rem] lg:h-[25rem]  relative overflow-hidden rounded">
           <div className="h-full transition-all duration-700 hover:scale-[1.05] cursor-pointer">
             <img
-              src={backgroundImageSrc}
+              src={`${BACKEND_SERVER_ADDRESS}${bannerImage}`}
               alt=""
               className="h-full w-full object-cover object-center"
             />
@@ -25,23 +29,7 @@ const CardOfProjectType2 = (props) => {
               <div className=" h-full flex justify-center items-center">
                 <div className="w-[80%]">
                   <div className="flex justify-center items-center">
-                    {videoResolutionType === "REGULAR" && (
-                      <video className="w-full" autoPlay loop muted>
-                        <source src={videoSrc} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    )}
-                    {videoResolutionType === "MOBILE" && (
-                      <video
-                        className="w-[30%] rounded-[11%]"
-                        autoPlay
-                        loop
-                        muted
-                      >
-                        <source src={videoSrc} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    )}
+                    <FeaturedImageOrVideo url={featuredImage} />
                   </div>
                 </div>
               </div>
@@ -50,10 +38,10 @@ const CardOfProjectType2 = (props) => {
         </div>
         <div className="px-3">
           <div className="mt-5 md:mt-10  text-[white] opacity-[0.7] md:text-lg">
-            {name}
+            {title}
           </div>
-          <div className="mt-3 md:mt-4 text-[white] opacity-[0.7] text-xs md:text-sm">
-            {category}
+          <div className="mt-3 md:mt-4 uppercase text-[white] opacity-[0.7] text-xs md:text-sm">
+            {description}
           </div>
         </div>
       </div>

@@ -3,13 +3,13 @@ import CardOfProjectType1 from "./CardOfProjectType1";
 import CardOfProjectType2 from "./CardOfProjectType2";
 
 const ProjectSectionBigScreen = (props) => {
-  const { data } = props;
-  console.log(data);
+  const { projectsData } = props;
+
   return (
     <>
       <div className="hidden md:block">
         <div className="grid grid-cols-1 md:grid-cols-2 md:items-center gap-10 md:gap-20 lg:gap-32">
-          {data.map((prop, index) => {
+          {projectsData.map((prop, index) => {
             const shouldTextBeInsideBox =
               index === 0 ||
               index === 3 ||
