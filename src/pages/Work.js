@@ -195,9 +195,9 @@ function Work() {
           </div>
         </div>
       </div>
-      {/* <ProjectList projects={projects} /> */}
+      <ProjectList projects={projects} />
 
-      <ProjectSection2 />
+      {/* <ProjectSection2 /> */}
       {!isAdminRoute && <Footer />}
     </>
   );
