@@ -8,6 +8,7 @@ import config from "../config";
 import ProjectSection2 from "../components/work-page-components/ProjectSection2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 function Work() {
   const isAdminRoute = window.location.pathname.startsWith("/admin");
   const { id } = useParams();
@@ -18,11 +19,15 @@ function Work() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-projects`,
-          { withCredentials: true }
-        );
-        setProjects(response.data); // Set the fetched projects to state
+        axios
+          .get(`${BACKEND_SERVER_ADDRESS}/api/admin/get-projects`)
+          .then((response) => {
+            const projectData = response.data;
+            setProjects(projectData);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } catch (err) {
         setError("Failed to fetch projects");
       } finally {
@@ -195,9 +200,9 @@ function Work() {
           </div>
         </div>
       </div>
-      {/* <ProjectList projects={projects} /> */}
+      <ProjectList projects={projects} />
 
-      <ProjectSection2 />
+      {/* <ProjectSection2 /> */}
       {!isAdminRoute && <Footer />}
     </>
   );
