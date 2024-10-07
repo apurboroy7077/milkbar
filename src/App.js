@@ -30,11 +30,12 @@ import ViewService from "./pages/admin/ViewService";
 import ServiceList from "./pages/admin/ServiceList";
 import AboutPage2 from "./pages/AboutPage2";
 import useStartup from "./hooks/useStartup/useStartup";
+import UpdateFeatured from "./pages/admin/featured/UpdateFeatured";
 
 function App() {
   useStartup();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Loading state
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   const isAdminRoute = window.location.pathname.startsWith("/admin");
 
   // Check for token in localStorage on initial load
@@ -208,6 +209,14 @@ function App() {
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <UpdateService onLogout={handleLogout} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/update-featured"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <UpdateFeatured handleLogout={handleLogout} />
             </ProtectedRoute>
           }
         />
