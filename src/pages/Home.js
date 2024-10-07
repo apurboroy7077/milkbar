@@ -13,6 +13,7 @@ import SingleProjectGallery from "../components/SingleProjectGallery";
 import ReviewSlider from "../components/ReviewSlider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 
 function App() {
   const isAdminRoute = window.location.pathname.startsWith("/admin");
@@ -24,11 +25,21 @@ function App() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-projects`,
-          { withCredentials: true }
-        );
-        setProjects(response.data); // Set the fetched projects to state
+        axios
+          .get(`${BACKEND_SERVER_ADDRESS}/api/admin/get-projects`)
+          .then((response) => {
+            const data = response.data;
+            setProjects(data);
+            console.log(data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        // const response = await axios.get(
+        //   `${BACKEND_SERVER_ADDRESS}/api/admin/get-projects`
+        // );
+        // console.log(response);
+        //  // Set the fetched projects to state
       } catch (err) {
         setError("Failed to fetch projects");
       } finally {
