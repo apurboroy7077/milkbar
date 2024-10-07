@@ -33,13 +33,7 @@ function ProjectList({ projects }) {
             >
               {project.featuredImage &&
                 (project.featuredImage.endsWith(".mp4") ? (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="object-fit-cover"
-                  >
+                  <video autoPlay muted loop playsInline>
                     <source
                       src={`${config.BASE_URL}${project.featuredImage}`}
                       type="video/mp4"
