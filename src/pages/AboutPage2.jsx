@@ -21,7 +21,7 @@ const AboutPage2 = () => {
             <div className=" absolute top-0 w-full h-full">
               <div className="w-full h-full flex items-end">
                 <div className="bg-[black] bg-opacity-50 backdrop-blur-sm w-full h-[60%]">
-                  <div className="px-5 py-10">
+                  <div className="px-5 py-10 overflow-scroll h-full">
                     <div>
                       <div className="flex gap-3 items-center">
                         <div className="bg-[#a2bb3c] h-[0.8rem] w-[0.8rem] rounded-full"></div>

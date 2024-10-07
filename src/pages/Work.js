@@ -45,7 +45,6 @@ function Work() {
         if (headerDivRef.current) {
           const headerDiv = headerDivRef.current;
           headerDiv.style.height = heightOfHeaderDiv - 2 + "px"; // -2 for real mobile issue
-          console.log("function activated");
         }
       }
     };
@@ -196,9 +195,9 @@ function Work() {
           </div>
         </div>
       </div>
-      <ProjectList projects={projects} />
+      {/* <ProjectList projects={projects} /> */}
 
-      {/* <ProjectSection2 /> */}
+      <ProjectSection2 />
       {!isAdminRoute && <Footer />}
     </>
   );
