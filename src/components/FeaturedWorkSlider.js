@@ -13,6 +13,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import config from "../config";
+import FeaturedMedia from "./featured/FeaturedMedia";
 
 function FeaturedWorkSlider({ projects, title }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -125,70 +126,70 @@ function FeaturedWorkSlider({ projects, title }) {
                 },
               }}
             >
-              {projects?.map((project, index) => (
-                <SwiperSlide>
-                  <div className="common_work_slide  position-relative">
-                    {project?.featuredImage && (
-                      <img
-                        src={`${config.BASE_URL}${project?.featuredImage}`}
-                        alt="Featured"
-                        className="position-absolute h-100 w-100 object-fit-cover"
-                      />
-                    )}
-                    {/* <img src={SliderItem1} alt="Image" className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover" /> */}
-                    <div className="common_work_slide_text position-absolute w-100 h-100">
-                      <div className="workbox_head">
-                        <h2>{project?.title}</h2>
-                        <p className="font-messina text-uppercase">
-                          {project?.description}
-                        </p>
-                      </div>
-                      <svg
-                        width="45"
-                        height="45"
-                        viewBox="0 0 45 45"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="showdefault"
-                      >
-                        <circle
-                          cx="22.5"
-                          cy="22.5"
-                          r="22.25"
-                          stroke="white"
-                          stroke-opacity="0.5"
-                          stroke-width="0.5"
-                        />
-                        <circle
-                          cx="22.5"
-                          cy="22.5"
-                          r="11.25"
-                          fill="white"
-                          fill-opacity="0.1"
-                        />
-                        <circle
-                          cx="22.5"
-                          cy="22.5"
-                          r="11"
-                          stroke="white"
-                          stroke-opacity="0.5"
-                          stroke-width="0.5"
-                        />
-                      </svg>
-
-                      <div className="work_slide_hover_content position-absolute"></div>
-                      <div className="text-center d-flex justify-content-center project_link">
-                        <Link
-                          to={`/project/${project?._id}`}
-                          className="text-white font-12 text-uppercase font-messina letter-spacing-5 underline_link"
+              {projects?.map((project, index) => {
+                return (
+                  <SwiperSlide>
+                    <div className="common_work_slide  position-relative">
+                      {project?.featuredImage && (
+                        <>
+                          <FeaturedMedia data={project} />
+                        </>
+                      )}
+                      {/* <img src={SliderItem1} alt="Image" className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover" /> */}
+                      <div className="common_work_slide_text position-absolute w-100 h-100">
+                        <div className="workbox_head">
+                          <h2>{project?.title}</h2>
+                          <p className="font-messina text-uppercase">
+                            {project?.description}
+                          </p>
+                        </div>
+                        <svg
+                          width="45"
+                          height="45"
+                          viewBox="0 0 45 45"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="showdefault"
                         >
-                          View Project
-                        </Link>
+                          <circle
+                            cx="22.5"
+                            cy="22.5"
+                            r="22.25"
+                            stroke="white"
+                            stroke-opacity="0.5"
+                            stroke-width="0.5"
+                          />
+                          <circle
+                            cx="22.5"
+                            cy="22.5"
+                            r="11.25"
+                            fill="white"
+                            fill-opacity="0.1"
+                          />
+                          <circle
+                            cx="22.5"
+                            cy="22.5"
+                            r="11"
+                            stroke="white"
+                            stroke-opacity="0.5"
+                            stroke-width="0.5"
+                          />
+                        </svg>
+
+                        <div className="work_slide_hover_content position-absolute"></div>
+                        <div className="text-center d-flex justify-content-center project_link">
+                          <Link
+                            to={`/project/${project?._id}`}
+                            className="text-white font-12 text-uppercase font-messina letter-spacing-5 underline_link"
+                          >
+                            View Project
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
 
             <div className="slider_nav d-flex align-items-center justify-content-center nowrap">

@@ -30,7 +30,6 @@ function App() {
           .then((response) => {
             const data = response.data;
             setProjects(data);
-            console.log(data);
           })
           .catch((error) => {
             console.log(error);
