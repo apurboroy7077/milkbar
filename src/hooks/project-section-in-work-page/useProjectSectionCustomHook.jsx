@@ -10,6 +10,7 @@ const useProjectSectionCustomHook = () => {
       .get(GET_EVERY_PROJECT_DATA_API_ADDRESS)
       .then((response) => {
         const { data } = response;
+
         setProjectsData(data);
       })
       .catch((error) => {
