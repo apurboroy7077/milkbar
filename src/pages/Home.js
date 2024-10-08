@@ -26,7 +26,7 @@ function App() {
     const fetchProjects = async () => {
       try {
         axios
-          .get(`${BACKEND_SERVER_ADDRESS}/api/admin/get-projects`)
+          .get(`${BACKEND_SERVER_ADDRESS}/api/admin/get-featured-projects`)
           .then((response) => {
             const data = response.data;
             setProjects(data);
