@@ -1,8 +1,59 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 
 function ContactForm() {
   const [isMobile, setIsMobile] = useState(false);
+  const [loadingStatus, setLoadingStatus] = useState("NOT_LOADING");
+  const [helpingSubject, setHelpingSubject] = useState([]);
+  const handleFormSubmit = (e) => {
+    setLoadingStatus("LOADING");
+    e.preventDefault();
+    const myFormData = new FormData(e.currentTarget);
+    const userName = myFormData.get("userName");
+    const userEmail = myFormData.get("userEmail");
+    const userDescription = myFormData.get("userDescription");
 
+    const dataForServer = {
+      userName,
+      userEmail,
+      userDescription,
+      helpingSubject,
+    };
+
+    axios
+      .post(
+        `${BACKEND_SERVER_ADDRESS}/api/admin/send-email-to-owner`,
+        dataForServer
+      )
+      .then((response) => {
+        console.log(response);
+        setLoadingStatus("SUCCESS");
+      })
+      .catch((error) => {
+        setLoadingStatus("FAILED");
+        console.log(error);
+      });
+  };
+
+  const handleClickHelpingSubject = (e) => {
+    const value = e.currentTarget.innerText;
+    let myHelpingSubjects = [...helpingSubject];
+    let isAlreadyExists = false;
+    for (let i = 0; i < myHelpingSubjects.length; i++) {
+      const singleValue = myHelpingSubjects[i];
+      if (singleValue === value) {
+        isAlreadyExists = true;
+      }
+    }
+
+    if (isAlreadyExists) {
+      myHelpingSubjects = myHelpingSubjects.filter((data) => data !== value);
+    } else {
+      myHelpingSubjects.push(value);
+    }
+    setHelpingSubject(myHelpingSubjects);
+  };
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -15,13 +66,23 @@ function ContactForm() {
     <>
       <div className="contact_form_outer">
         <div className="contact_form_wrap position-relative">
-          <form className="pt-50">
+          <form onSubmit={handleFormSubmit} className="pt-50">
             <div className="form-groups-container">
               <div className="form-group">
-                <input name="" type="text" placeholder="name" />
+                <input
+                  name="userName"
+                  type="text"
+                  placeholder="name"
+                  required
+                />
               </div>
               <div className="form-group">
-                <input name="" type="email" placeholder="email" />
+                <input
+                  name="userEmail"
+                  type="email"
+                  placeholder="email"
+                  required
+                />
               </div>
             </div>
             <div className="form-group option-type-form">
@@ -40,6 +101,7 @@ function ContactForm() {
                     title=""
                     for="budgetRadios1"
                     className="form-check-label"
+                    onClick={handleClickHelpingSubject}
                   >
                     branding
                   </label>
@@ -55,6 +117,7 @@ function ContactForm() {
                     title=""
                     for="budgetRadios2"
                     className="form-check-label"
+                    onClick={handleClickHelpingSubject}
                   >
                     web design
                   </label>
@@ -70,6 +133,7 @@ function ContactForm() {
                     title=""
                     for="budgetRadios3"
                     className="form-check-label"
+                    onClick={handleClickHelpingSubject}
                   >
                     web development
                   </label>
@@ -85,6 +149,7 @@ function ContactForm() {
                     title=""
                     for="budgetRadios4"
                     className="form-check-label"
+                    onClick={handleClickHelpingSubject}
                   >
                     social media
                   </label>
@@ -100,6 +165,7 @@ function ContactForm() {
                     title=""
                     for="budgetRadios5"
                     className="form-check-label"
+                    onClick={handleClickHelpingSubject}
                   >
                     advertising
                   </label>
@@ -115,6 +181,7 @@ function ContactForm() {
                     title=""
                     for="budgetRadios6"
                     className="form-check-label"
+                    onClick={handleClickHelpingSubject}
                   >
                     hospitality consulting
                   </label>
@@ -125,12 +192,43 @@ function ContactForm() {
               <label className="font-18 font-sfpro letter-spacing-5 mb-40 d-flex">
                 let us know about your situation
               </label>
-              <textarea name="" placeholder="" />
+              <textarea name="userDescription" placeholder="" required />
             </div>
             <div className="form-group send-message">
-              <button type="submit" className="send-message-btn underline_link">
-                Send Message
-              </button>
+              {loadingStatus === "NOT_LOADING" && (
+                <button
+                  type="submit"
+                  className="send-message-btn underline_link"
+                >
+                  Send Message
+                </button>
+              )}
+              {loadingStatus === "LOADING" && (
+                <button
+                  disabled
+                  type="button"
+                  className="send-message-btn underline_link"
+                >
+                  Sending <i class="fa-solid fa-spinner animate-spin"></i>
+                </button>
+              )}
+              {loadingStatus === "SUCCESS" && (
+                <button
+                  disabled
+                  type="button"
+                  className="send-message-btn underline_link"
+                >
+                  Message Sent <i className="fa-solid fa-check ml-3"></i>
+                </button>
+              )}
+              {loadingStatus === "FAILED" && (
+                <button
+                  type="submit"
+                  className="send-message-btn underline_link"
+                >
+                  FAILED, Try Again
+                </button>
+              )}
             </div>
           </form>
           {/* <div className='message text-center'>
