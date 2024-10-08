@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BACKEND_SERVER_ADDRESS } from "../../../data/variables/variables-1";
 
-const CheckBoxOfChoosingFeaturedItems = (props) => {
+const CheckboxOfSelectingFeaturedItemInProjectManagePage = (props) => {
   const { _id } = props;
 
   const [checkedStatus, setCheckedStatus] = useState(false);
@@ -94,4 +94,4 @@ const CheckBoxOfChoosingFeaturedItems = (props) => {
   );
 };
 
-export default CheckBoxOfChoosingFeaturedItems;
+export default CheckboxOfSelectingFeaturedItemInProjectManagePage;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import config from "../../config";
+import CheckboxOfSelectingFeaturedItemInProjectManagePage from "./projects/CheckboxOfSelectingFeaturedItemInProjectManagePage";
 
 function AllProjectlist() {
   const [projects, setProjects] = useState([]);
@@ -67,6 +68,7 @@ function AllProjectlist() {
                       <th>What We Do</th>
                       <th>Brand Direction</th>
                       <th className="text-right">Actions</th>
+                      <th>Is Featured</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -83,32 +85,41 @@ function AllProjectlist() {
                         (
                           project,
                           index // Map through the projects
-                        ) => (
-                          <tr key={project._id}>
-                            <td>
-                              <p>{project.title}</p>
-                            </td>{" "}
-                            {/* Display serial number */}
-                            <td>
-                              <p>{project.whatWeDo}</p>{" "}
-                              {/* Adjust the property name based on your schema */}
-                            </td>
-                            <td className="member">
-                              <div className="member-info">
-                                <p>{project.brandDirection}</p>{" "}
-                                {/* Adjust as necessary */}
-                              </div>
-                            </td>
-                            <td>
-                              <Link
-                                to={`/admin/project/${project._id}`}
-                                className="view_detail"
-                              >
-                                View Details
-                              </Link>
-                            </td>
-                          </tr>
-                        )
+                        ) => {
+                          const { _id } = project;
+                          console.log(_id);
+                          return (
+                            <tr key={project._id}>
+                              <td>
+                                <p>{project.title}</p>
+                              </td>{" "}
+                              {/* Display serial number */}
+                              <td>
+                                <p>{project.whatWeDo}</p>{" "}
+                                {/* Adjust the property name based on your schema */}
+                              </td>
+                              <td className="member">
+                                <div className="member-info">
+                                  <p>{project.brandDirection}</p>{" "}
+                                  {/* Adjust as necessary */}
+                                </div>
+                              </td>
+                              <td>
+                                <Link
+                                  to={`/admin/project/${project._id}`}
+                                  className="view_detail"
+                                >
+                                  View Details
+                                </Link>
+                              </td>
+                              <td>
+                                <CheckboxOfSelectingFeaturedItemInProjectManagePage
+                                  _id={_id}
+                                />
+                              </td>
+                            </tr>
+                          );
+                        }
                       )
                     )}
                   </tbody>
