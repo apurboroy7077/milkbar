@@ -14,6 +14,8 @@ import FeaturedWorkSlider from "../components/FeaturedWorkSlider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
+import HeroSectionOfProjectDetailsPage from "../components/project/HeroSectionOfProjectDetailsPage";
+import useBasic from "../hooks/useBasics/useBasics";
 
 function App() {
   const isAdminRoute = window.location.pathname.startsWith("/admin");
@@ -24,7 +26,7 @@ function App() {
   const [bookings, setBookings] = useState([]);
   const [brandSection, setBrandSection] = useState(null);
   const [error, setError] = useState("");
-
+  const screenSize = useBasic((state) => state.screenSize);
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
@@ -86,8 +88,10 @@ function App() {
 
   return (
     <>
-      {!isAdminRoute && <Header />}
-      <ProjectBanner project={project} />
+      {screenSize === "SMALL_SCREEN" && <Header />}
+      {/* {!isAdminRoute && <Header />} */}
+      {/* <ProjectBanner project={project} /> */}
+      <HeroSectionOfProjectDetailsPage />
       <WhatWeDo project={project} />
       <BrandDirection project={project} brandSection={brandSection} />
       <SingleProjectGallery />
