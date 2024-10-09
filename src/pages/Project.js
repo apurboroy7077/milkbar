@@ -13,6 +13,7 @@ import SingleProjectGallery from "../components/SingleProjectGallery";
 import FeaturedWorkSlider from "../components/FeaturedWorkSlider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 
 function App() {
   const isAdminRoute = window.location.pathname.startsWith("/admin");
@@ -28,8 +29,7 @@ function App() {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-project/${id}`,
-          { withCredentials: true }
+          `${BACKEND_SERVER_ADDRESS}/api/admin/get-project/${id}`
         );
         setProject(response.data); // Set the fetched project details
       } catch (err) {
@@ -39,8 +39,7 @@ function App() {
     const fetchBookings = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-bookings/${id}`,
-          { withCredentials: true }
+          `${BACKEND_SERVER_ADDRESS}/api/admin/get-bookings/${id}`
         );
         setBookings(response.data); // Set the fetched bookings
       } catch (err) {
@@ -51,8 +50,7 @@ function App() {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-projects`,
-          { withCredentials: true }
+          `${BACKEND_SERVER_ADDRESS}/api/admin/get-projects`
         );
         setProjects(response.data); // Set the fetched projects to state
       } catch (err) {
@@ -64,7 +62,7 @@ function App() {
     const fetchBrandSection = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/brandsection`
+          `${BACKEND_SERVER_ADDRESS}/api/admin/brandsection`
         );
         setBrandSection(response.data);
       } catch (err) {
