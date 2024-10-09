@@ -9,7 +9,7 @@ import MoreProjectSlider from "../components/MoreProjectSlider";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config";
-import SingleProjectGallery from "../components/SingleProjectGallery";
+import SingleProjectGallery from "../components/SingleProjectGallery_old";
 import FeaturedWorkSlider from "../components/FeaturedWorkSlider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
