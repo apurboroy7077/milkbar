@@ -188,11 +188,16 @@ function ContactForm() {
                 </div>
               </div>
             </div>
-            <div className="form-group textareafld">
-              <label className="font-18 font-sfpro letter-spacing-5 mb-40 d-flex">
+            <div className="form-group textareafld ">
+              <label className="font-18 font-sfpro letter-spacing-5 mb-10 d-flex">
                 let us know about your situation
               </label>
-              <textarea name="userDescription" placeholder="" required />
+              <textarea
+                name="userDescription"
+                placeholder=""
+                required
+                className=""
+              />
             </div>
             <div className="form-group send-message">
               {loadingStatus === "NOT_LOADING" && (
