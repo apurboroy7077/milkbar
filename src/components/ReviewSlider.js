@@ -116,7 +116,7 @@ export default function ReviewSlider() {
           </SwiperSlide>
         </div>
       </Swiper>
-      <div className="slider_nav d-flex align-items-center justify-content-center nowrap mt-[50px]">
+      <div className="slider_nav d-flex align-items-center justify-content-center nowrap mt-20 lg:mt-28">
         <button className="review-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center">
           <img src={LeftArrow} alt="Image" />
         </button>
