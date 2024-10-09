@@ -58,7 +58,7 @@ const AboutPage2 = () => {
             <div className=" absolute top-0 w-full h-full">
               <div className="h-full">
                 <div className="w-full h-full flex ">
-                  <div className=" w-[60%] xl:w-[50%] bg-[black] bg-opacity-50 backdrop-blur-sm h-full ">
+                  <div className=" w-[60%] xl:w-[50%] bg-[black] bg-opacity-40 backdrop-blur-sm h-full ">
                     <div className="flex justify-end items-center h-full">
                       <div className="px-10 xl:pl-16 xl:pr-[175px] py-10 w-[90%] lg:w-[80%] xl:w-[80%]">
                         <div>
