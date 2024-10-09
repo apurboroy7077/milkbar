@@ -21,7 +21,7 @@ export default function SingleProjectGallery() {
   return (
     <>
       <div className="home_gallery_block overflow-hidden">
-        <div className="gallery-title-container mobile-version">
+        {/* <div className="gallery-title-container mobile-version">
           <div className="gallery-title-content">
             <h3>full stack development meets experiential design</h3>
             <svg
@@ -39,8 +39,25 @@ export default function SingleProjectGallery() {
               <li>app integration meets branded ux</li>
             </ul>
           </div>
+        </div> */}
+        <div className="gallery-title-content text-center ">
+          <h3 className="lg:text-2xl opacity-[0.85]">
+            full stack development meets experiential design
+          </h3>
+          <div className="flex justify-center items-center mt-5 lg:mt-7">
+            <div className="bg-[#A2BB3C] h-[0.4rem] w-[0.4rem] rounded-full"></div>
+          </div>
+          <ul className="mt-5 lg:mt-10 flex flex-col gap-2 lg:gap-5">
+            <li className="text-sm lg:text-lg opacity-60 ">app development</li>
+            <li className="text-sm lg:text-lg opacity-60">
+              custom data management solutions
+            </li>
+            <li className="text-sm lg:text-lg opacity-60">
+              app integration meets branded ux
+            </li>
+          </ul>
         </div>
-        <div className="gallery-top-container">
+        <div className="gallery-top-container mt-10 lg:mt-32">
           <div className="gallery-content-1">
             <video autoPlay muted loop playsInline className="object-fit-cover">
               <source src={Video2} type="video/mp4" />
@@ -58,26 +75,24 @@ export default function SingleProjectGallery() {
                 height="5"
                 viewBox="0 0 5 5"
                 fill="none"
-              >
-                <circle cx="2.22222" cy="2.22222" r="2.22222" fill="#A2BB3C" />
-              </svg>
-              <div className="gallery-title-content">
-                <h3>full stack development meets experiential design</h3>
-                <ul>
-                  <li>app development</li>
-                  <li>custom data management solutions</li>
-                  <li>app integration meets branded ux</li>
-                </ul>
-              </div>
+              ></svg>
             </div>
             <img src={Gallery2} alt="gallery-2" />
-            <p className="gallery-review-title">Tokyo-based coffee company</p>
+            <p
+              className="gallery-review-title "
+              style={{ fontSize: "0.75rem" }}
+            >
+              Tokyo-based coffee company
+            </p>
           </div>
         </div>
         <div className="gallery-bottom-container">
           <div className="gallery-content-3">
             <img src={Gallery3} alt="gallery-3" />
-            <p className="gallery-review-title">
+            <p
+              className="gallery-review-title  w-full text-end"
+              style={{ fontSize: "0.75rem" }}
+            >
               Members-only dating app - launching late 2024
             </p>
           </div>

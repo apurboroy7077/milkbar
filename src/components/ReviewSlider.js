@@ -10,7 +10,7 @@ import RightArrow from "../assets/images/right-arrow.svg";
 
 export default function ReviewSlider() {
   return (
-    <div className="review-swiper-container">
+    <div className="review-swiper-container mt-32 px-5 lg:px-10">
       <div className="review-swiper-title">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ export default function ReviewSlider() {
         modules={[Navigation, A11y, Scrollbar]}
         freeMode={true}
         spaceBetween={100}
-        slidesPerView={2.8}
+        slidesPerView={3}
         navigation={{
           nextEl: ".review-arrow-right",
           prevEl: ".review-arrow-left",
@@ -39,21 +39,21 @@ export default function ReviewSlider() {
         loop={false}
         breakpoints={{
           320: {
-            slidesPerView: 1.2,
+            slidesPerView: 1,
             spaceBetween: 10,
             centeredSlides: true,
           },
           550: {
             spaceBetween: 15,
-            slidesPerView: 1.5,
+            slidesPerView: 2,
           },
           768: {
             spaceBetween: 15,
-            slidesPerView: 1.8,
+            slidesPerView: 3,
           },
           1025: {
             spaceBetween: 12,
-            slidesPerView: 2.8,
+            slidesPerView: 3,
           },
         }}
         className="mySwiper"
@@ -116,7 +116,7 @@ export default function ReviewSlider() {
           </SwiperSlide>
         </div>
       </Swiper>
-      <div className="slider_nav d-flex align-items-center justify-content-center nowrap">
+      <div className="slider_nav d-flex align-items-center justify-content-center nowrap mt-20 lg:mt-28">
         <button className="review-arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center">
           <img src={LeftArrow} alt="Image" />
         </button>

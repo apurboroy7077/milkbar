@@ -44,8 +44,7 @@ function ServiceTabsPanel() {
     const fetchServices = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-services`,
-          { withCredentials: true }
+          `${config.BASE_URL}/api/admin/get-services`
         );
         var images = [];
         if (Array.isArray(response.data)) {
@@ -133,8 +132,8 @@ function ServiceTabsPanel() {
           {/* <div className='service_tab_items hideonmobile'> */}
           <div className="service_tab_items_wrapper">
             <h6 className="services_tab_title">Services</h6>
-            <div className="service_tab_items" ref={tabRef}>
-              <div className="service_tab_item_title_container">
+            <div className="service_tab_items flex gap-32" ref={tabRef}>
+              <div className="service_tab_item_title_container flex flex-col gap-2">
                 {services.map((item, index) => (
                   <div
                     className={`service_tab_item ${

@@ -153,16 +153,16 @@ function Work() {
                     <div className="text-[white]  text-xl lg:text-3xl">
                       Work
                     </div>
-                    <div className="mt-16 lg:mt-20 text-xs text-[white] opacity-70 lg:text-base">
+                    <div className="mt-16 lg:mt-32 text-xs lg:text-xs text-[white] opacity-[0.6] ">
                       FEATURED
                     </div>
-                    <div className="text-[white] mt-5 lg:mt-7 opacity-80 lg:text-2xl">
+                    <div className="text-[white] mt-5 lg:mt-7 opacity-[0.75] lg:text-2xl">
                       Swift: Members Only Dating App
                     </div>
-                    <div className="text-[white] mt-5 lg:mt-7  opacity-80 lg:text-2xl">
+                    <div className="text-[white] mt-5 lg:mt-7  opacity-[0.6] text-sm">
                       branding, app design, social media
                     </div>
-                    <div className="text-[white] mt-2  opacity-80 text-xs italic lg:text-lg">
+                    <div className="text-[white] mt-2  opacity-[1] text-xs italic ">
                       launching late 2024
                     </div>
                   </div>
