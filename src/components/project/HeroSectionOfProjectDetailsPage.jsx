@@ -1,6 +1,11 @@
 import React from "react";
+import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
+import FeaturedImage from "../featured/FeaturedImage";
+import FeaturedVideo from "../featured/FeaturedVideo";
 
-const HeroSectionOfProjectDetailsPage = () => {
+const HeroSectionOfProjectDetailsPage = (props) => {
+  const { project } = props;
+  const { title, bannerImage, featuredImage } = project;
   return (
     <>
       <section className="md:mb-10">
@@ -42,7 +47,7 @@ const HeroSectionOfProjectDetailsPage = () => {
         <div className="hidden md:block">
           <div className="relative">
             <img
-              src="/images/project/project-details-hero-background-desktop.svg"
+              src={`${BACKEND_SERVER_ADDRESS}${bannerImage}`}
               alt=""
               className="w-full h-[50rem] object-cover object-center"
             />
@@ -57,16 +62,23 @@ const HeroSectionOfProjectDetailsPage = () => {
                 <div className="mt-20">
                   <div className="flex items-center justify-center">
                     <div className="w-[600px] h-[347px]">
-                      <img
-                        src="/images/project/demo-project-image.svg"
+                      {/* <img
+                        src={`${BACKEND_SERVER_ADDRESS}${FeaturedImage}`}
                         alt=""
                         className="w-full h-full object-cover object-center"
-                      />{" "}
+                      />{" "} */}
+                      <video autoPlay loop muted>
+                        <source
+                          src={`${BACKEND_SERVER_ADDRESS}${featuredImage}`}
+                          type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                   </div>
                 </div>
                 <div className="text-[28px] px-5 text-center mt-16 opacity-[0.65]">
-                  toronto-based architecture firm
+                  {title}
                 </div>
                 <div className="text-[37px] px-5 text-center mt-3   ">
                   <span className="font-medium">contempo</span>

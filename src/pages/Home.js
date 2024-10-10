@@ -53,7 +53,7 @@ function App() {
     <>
       {!isAdminRoute && <Header />}
       <HomeBanner />
-      <WhatWeDo />
+      {/* <WhatWeDo project={} /> */}
       <FeaturedWorkSlider projects={projects} title="Featured Work" />
       <SingleProjectGallery />
       <ReviewSlider />

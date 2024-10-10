@@ -33,6 +33,7 @@ function App() {
         const response = await axios.get(
           `${BACKEND_SERVER_ADDRESS}/api/admin/get-project/${id}`
         );
+
         setProject(response.data); // Set the fetched project details
       } catch (err) {
         setError("Failed to fetch project details");
@@ -91,10 +92,10 @@ function App() {
       {screenSize === "SMALL_SCREEN" && <Header />}
       {/* {!isAdminRoute && <Header />} */}
       {/* <ProjectBanner project={project} /> */}
-      <HeroSectionOfProjectDetailsPage />
+      <HeroSectionOfProjectDetailsPage project={project} />
       <WhatWeDo project={project} />
       <BrandDirection project={project} brandSection={brandSection} />
-      <SingleProjectGallery />
+      <SingleProjectGallery project={project} />
       <SeamlessBooking project={project} />
       <ProjectVerticle bookings={bookings} />
       <FeaturedWorkSlider projects={projects} title="MORE PROJECTS" />
