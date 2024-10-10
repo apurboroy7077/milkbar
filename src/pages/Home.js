@@ -52,7 +52,7 @@ function App() {
   return (
     <>
       <HomeBanner />
-      <WhatWeDo />
+      {/* <WhatWeDo project={} /> */}
       <FeaturedWorkSlider projects={projects} title="Featured Work" />
       <SingleProjectGallery />
       <ReviewSlider />

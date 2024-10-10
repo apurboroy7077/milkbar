@@ -11,26 +11,21 @@ import "swiper/css/scrollbar";
 import config from "../config";
 
 function FeaturedWorkSlider({ project }) {
-  // if (!Array.isArray(project)  ) {
-  //     return (<div></div>);
-  // }
+  const { desktopImages, designIntro, designTitle, designDescription } =
+    project;
   if (project) {
     return (
       <div className="bg-white plr-100 text-dark">
         <div className="seamless_booking_slider position-relative z-1 ptb-120">
           <div className="seamless_booking_head text-center">
             <h6 className="text-uppercase letter-spacing-5 font-12 text-center">
-              Web Design + Development
+              {designIntro}
             </h6>
             <div class="dotdivider text-center mtb15">
               <span></span>
             </div>
-            <h2>seamless booking</h2>
-            <p className="font-messina">
-              We wanted to reference the Greek routes in the brand design while
-              maintaining a simple look and feel to reflect the ease of booking
-              with Meso.
-            </p>
+            <h2>{designTitle}</h2>
+            <p className="font-messina">{designDescription}</p>
           </div>
           <div className="seamless_booking_slider_wrapper position-relative pt-40">
             <Swiper
@@ -60,7 +55,7 @@ function FeaturedWorkSlider({ project }) {
               }}
             >
               {project?.images && project?.images.length > 0 ? (
-                project?.images.map((image, index) => (
+                project?.desktopImages.map((image, index) => (
                   <SwiperSlide>
                     <div
                       className="seamless_booking_slide  position-relative"
