@@ -66,6 +66,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      {!isAdminRoute && <Header />}
 
       <Routes>
         <Route index element={<Home />} />

@@ -88,7 +88,6 @@ function App() {
 
   return (
     <>
-      {screenSize === "SMALL_SCREEN" && <Header />}
       {/* {!isAdminRoute && <Header />} */}
       {/* <ProjectBanner project={project} /> */}
       <HeroSectionOfProjectDetailsPage />

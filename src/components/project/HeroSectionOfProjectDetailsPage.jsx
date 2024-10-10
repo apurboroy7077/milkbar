@@ -48,12 +48,6 @@ const HeroSectionOfProjectDetailsPage = () => {
             />
             <div className="bg-[black] backdrop-blur-sm bg-opacity-[35%] absolute top-0 h-full w-full">
               <div>
-                <div className="py-7  bg-gradient-to-b from-[#010101] to-transparent">
-                  <div className="text-[28px] font-medium text-center">
-                    milkbar
-                  </div>
-                </div>
-                <hr className="opacity-[0.5]" />
                 <div className="mt-20">
                   <div className="flex items-center justify-center">
                     <div className="w-[600px] h-[347px]">

@@ -6,7 +6,6 @@ function Services() {
   const isAdminRoute = window.location.pathname.startsWith("/admin");
   return (
     <>
-      {!isAdminRoute && <Header />}
       <div>Services</div>
       {!isAdminRoute && <Footer />}
     </>

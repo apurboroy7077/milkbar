@@ -51,7 +51,6 @@ function App() {
 
   return (
     <>
-      {!isAdminRoute && <Header />}
       <HomeBanner />
       <WhatWeDo />
       <FeaturedWorkSlider projects={projects} title="Featured Work" />

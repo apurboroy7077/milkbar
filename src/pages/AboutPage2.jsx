@@ -9,7 +9,6 @@ const AboutPage2 = () => {
 
   return (
     <>
-      {!isAdminRoute && screenSize === "SMALL_SCREEN" && <Header />}
       <section>
         <div className="md:hidden">
           <div className="h-screen w-full relative">
@@ -21,7 +20,7 @@ const AboutPage2 = () => {
             <div className=" absolute top-0 w-full h-full">
               <div className="w-full h-full flex items-end">
                 <div className="bg-[black] bg-opacity-[65%] backdrop-blur-sm w-full h-[60%]">
-                  <div className="px-5 py-10 overflow-scroll h-full">
+                  <div className="px-5 py-10  h-full">
                     <div>
                       <div className="flex gap-3 items-center">
                         <div className="bg-[#a2bb3c] h-[0.8rem] w-[0.8rem] rounded-full"></div>
@@ -86,14 +85,6 @@ const AboutPage2 = () => {
                     </div>
                   </div>
                   <div className="w-[40%] xl:w-[50%] h-full"></div>
-                </div>
-                <div className="absolute top-0 w-full">
-                  <div className="py-10">
-                    <div className="text-[white] text-center text-2xl font-medium ">
-                      milkbar
-                    </div>
-                    <hr className="mt-10 opacity-50" />
-                  </div>
                 </div>
               </div>
             </div>

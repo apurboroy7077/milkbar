@@ -9,7 +9,6 @@ function aboutPage() {
 
   return (
     <>
-      {!isAdminRoute && <Header />}
       <div className="aboutpage">
         <AboutBanner />
         <Gallery />
