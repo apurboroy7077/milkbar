@@ -3,9 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import config from "../../config";
 import DesktopImagesInputField from "./add-projects/DesktopImagesInputField";
+import DynamicInputField from "./add-projects/DynamicInputField";
+import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
 
 function AddNewProject() {
   const navigate = useNavigate();
+  const [fetchStatus, setFetchStatus] = useState("INITIAL");
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     title: "",
@@ -72,6 +75,21 @@ function AddNewProject() {
       setError(err.response?.data?.message || "Failed to add project");
     }
   };
+  const handleAddProject2 = (e) => {
+    e.preventDefault();
+    setFetchStatus("LOADING");
+    const formData = new FormData(e.currentTarget);
+    axios
+      .post(`${BACKEND_SERVER_ADDRESS}/api/admin/add-project/v2`, formData)
+      .then((response) => {
+        console.log(response);
+        setFetchStatus("SUCCESS");
+      })
+      .catch((error) => {
+        console.log(error);
+        setFetchStatus("FAILED");
+      });
+  };
 
   return (
     <div className="dashboard">
@@ -83,7 +101,7 @@ function AddNewProject() {
               Go Back
             </button>
           </div>
-          <div className="main-inner add_project_main">
+          {/* <div className="main-inner add_project_main">
             <form onSubmit={handleAddProject} encType="multipart/form-data">
               <div className="form-login">
                 <div className="add_field">
@@ -178,44 +196,133 @@ function AddNewProject() {
               </div>
             </form>
             {error && <p className="error-message">{error}</p>}
-          </div>
+          </div> */}
           <div className="mt-10">
-            <form>
+            <form onSubmit={handleAddProject2}>
               <div className="bg-[#1F2937] px-10 py-10 rounded-lg flex flex-col gap-10">
                 <div className="add_field">
-                  <h2>Project Logo</h2>
-                  <input type="file" name="title" required />
+                  <h2>Project Title</h2>
+                  <input type="text" name="projectTitle" required />
                 </div>
                 <div className="add_field">
+                  <h2>Project Description</h2>
+                  <textarea
+                    name="projectDescription"
+                    className="w-full h-[10rem] rounded text-[black] text-sm px-3 py-3"
+                    required
+                  ></textarea>
+                </div>
+                <DynamicInputField
+                  title={"What Do We Do"}
+                  name="work"
+                  inputType="text"
+                  addAnotherButtonName="Add Another Work"
+                />
+                <div className="add_field">
+                  <h2>Brand Direction</h2>
+                  <input type="text" name="brandDirection" required />
+                </div>
+                <div className="add_field">
+                  <h2>Banner Image</h2>
+                  <div className="flex flex-col gap-5">
+                    <div>
+                      <input type="file" name="bannerImage" required />
+                    </div>
+                  </div>
+                </div>
+                <div className="add_field">
+                  <h2>Featured Image</h2>
+                  <div className="flex flex-col gap-5">
+                    <div>
+                      <input type="file" name="featuredImage" required />
+                    </div>
+                  </div>
+                </div>
+                <div className="add_field">
+                  <h2>Gallery Images</h2>
+                  <div className="flex flex-col gap-5">
+                    <div>
+                      <input type="file" name="galleryImage1" required />
+                    </div>
+                    <div>
+                      <input type="file" name="galleryImage2" required />
+                    </div>
+                    <div>
+                      <input type="file" name="galleryImage3" required />
+                    </div>
+                    <div>
+                      <input type="file" name="galleryImage4" required />
+                    </div>{" "}
+                  </div>
+                </div>
+                <div className="add_field">
+                  <h2>Project Logo</h2>
+                  <input type="file" name="projectLogo" required />
+                </div>
+
+                <div className="add_field">
                   <h2>Design Intro</h2>
-                  <input type="text" name="title" required />
+                  <input type="text" name="designIntro" required />
                 </div>
                 <div className="add_field">
                   <h2>Design Title</h2>
-                  <input type="text" name="title" required />
+                  <input type="text" name="designTitle" required />
                 </div>
                 <div className="add_field">
                   <h2>Design Description</h2>
-                  <textarea className="w-full rounded h-[10rem]" />
+                  <textarea
+                    name="designDescription"
+                    className="w-full h-[10rem] rounded text-[black] text-sm px-3 py-3"
+                  />
                 </div>
-                <DesktopImagesInputField />
-                <div className="add_field">
-                  <h2>Images For Mobile Devices</h2>
-                  <input type="file" name="title" required />
+                <DynamicInputField
+                  title="Desktop Images"
+                  name="desktopImage"
+                  inputType="file"
+                  addAnotherButtonName="Add Another Image"
+                />
+                <DynamicInputField
+                  title="Mobile Images"
+                  name="mobileImage"
+                  inputType="file"
+                  addAnotherButtonName="Add Another Image"
+                />
 
-                  <div className="mt-5">
+                <div>
+                  {fetchStatus === "INITIAL" && (
+                    <button
+                      type="submit"
+                      className=" text-[black] w-full bg-[lawngreen] py-5 font-bold rounded-md"
+                    >
+                      Add Project
+                    </button>
+                  )}
+                  {fetchStatus === "LOADING" && (
                     <button
                       type="button"
-                      className="w-full bg-[black] py-3 rounded-lg"
+                      disabled
+                      className=" text-[black] w-full bg-[lawngreen] py-5 font-bold rounded-md"
                     >
-                      Add Another Image
+                      Loading <i class="fa-solid fa-spinner animate-spin"></i>
                     </button>
-                  </div>
-                </div>
-                <div>
-                  <button className=" text-[black] w-full bg-[lawngreen] py-5 font-bold rounded-md">
-                    Add Project
-                  </button>
+                  )}
+                  {fetchStatus === "SUCCESS" && (
+                    <button
+                      type="button"
+                      disabled
+                      className=" text-[black] w-full bg-[lawngreen] py-5 font-bold rounded-md"
+                    >
+                      Project Added <i class="fa-solid fa-check"></i>
+                    </button>
+                  )}
+                  {fetchStatus === "FAILED" && (
+                    <button
+                      type="submit"
+                      className=" text-[black] w-full bg-[lawngreen] py-5 font-bold rounded-md"
+                    >
+                      Failed , try again !
+                    </button>
+                  )}
                 </div>
               </div>
             </form>
