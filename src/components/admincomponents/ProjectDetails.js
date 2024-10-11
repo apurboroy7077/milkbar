@@ -56,7 +56,7 @@ function ProjectDetails() {
 
   return (
     <div className="dashboard project_detail_wrap">
-      <div className="container">
+      <div className="content-container">
         <h1 className="dash_title">Dashboard</h1>
         <div className="back_btn_wrap">
           <button className="back-btn" onClick={() => navigate(-1)}>

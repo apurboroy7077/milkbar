@@ -22,7 +22,6 @@ function App() {
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [projects, setProjects] = useState([]);
-  console.log(projects);
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
   const [brandSection, setBrandSection] = useState(null);

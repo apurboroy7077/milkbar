@@ -2485,11 +2485,11 @@ input:-webkit-autofill:focus {
   width: calc(100% - 220px);
   margin-left: auto;
 }
-.dashboard .container {
+.dashboard .content-container {
   padding: 24px;
   background: #000;
   height: 100vh;
-  overflow: auto;
+  width: 100%;
 }
 .dash_title {
   padding-bottom: 30px;
