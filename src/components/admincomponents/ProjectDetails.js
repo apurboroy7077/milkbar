@@ -11,6 +11,7 @@ function ProjectDetails() {
   const [bookings, setBookings] = useState([]); // State to hold bookings
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [deleteButtonStatus, setDeleteButtonStatus] = useState("INITIAL");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,12 +45,32 @@ function ProjectDetails() {
   console.log(project);
   const handleDelete = async () => {
     try {
-      await axios.delete(`${config.BASE_URL}/api/admin/delete-project/${id}`);
+      await axios.delete(
+        `${BACKEND_SERVER_ADDRESS}/api/admin/delete-project/${id}`
+      );
       // Navigate back to the project list or show a success message
       navigate("/admin/dashboard");
     } catch (err) {
       setError("Failed to delete the project");
     }
+  };
+
+  const handleDelete2 = () => {
+    const dataForServer = { id };
+    setDeleteButtonStatus("LOADING");
+    axios
+      .post(
+        `${BACKEND_SERVER_ADDRESS}/api/admin/delete-project/v2`,
+        dataForServer
+      )
+      .then((response) => {
+        console.log(response);
+        setDeleteButtonStatus("SUCCESS");
+      })
+      .catch((error) => {
+        console.log(error);
+        setDeleteButtonStatus("FAILED");
+      });
   };
 
   if (loading) return <p>Loading...</p>;
@@ -248,31 +269,31 @@ function ProjectDetails() {
                   </div>
                 </div>
               </div>
-              <div className="detail_item">
-                <h2>Images</h2>
-                <div className="detail_item_inner gallery_inner">
-                  <div className="detail_img_grid">
-                    {project?.images && project?.images.length > 0 ? (
-                      project?.images.map((image, index) => (
-                        <div className="detail_img_item" key={index}>
-                          <img
-                            src={`${config.BASE_URL}${image}`}
-                            alt={`Project image ${index}`}
-                          />
-                        </div>
-                      ))
-                    ) : (
-                      <p>No images available.</p>
-                    )}
-                  </div>
-                </div>
-              </div>
+
               <div className="detail_project_btn_wrap">
                 <div className="detail_edit_del">
                   <div className="btn_item">
-                    <button className="detail_btns" onClick={handleDelete}>
-                      Delete
-                    </button>
+                    {deleteButtonStatus === "INITIAL" && (
+                      <button className="detail_btns" onClick={handleDelete2}>
+                        Delete
+                      </button>
+                    )}
+                    {deleteButtonStatus === "LOADING" && (
+                      <button className="detail_btns">
+                        Deleting{" "}
+                        <i className="fa-solid fa-spinner animate-spin"></i>
+                      </button>
+                    )}
+                    {deleteButtonStatus === "SUCCESS" && (
+                      <button className="detail_btns">
+                        Deleted <i className="fa-solid fa-check"></i>
+                      </button>
+                    )}
+                    {deleteButtonStatus === "FAILED" && (
+                      <button className="detail_btns" onClick={handleDelete2}>
+                        Failed, try again
+                      </button>
+                    )}
                   </div>
                   <div className="btn_item">
                     <Link
@@ -283,60 +304,9 @@ function ProjectDetails() {
                     </Link>
                   </div>
                 </div>
-                <div className="detail_add_img">
-                  <div className="btn_item">
-                    <Link
-                      to={`/admin/add-bookings/${project?._id}`}
-                      className="add_booking detail_btns"
-                    >
-                      Add Title Images
-                    </Link>
-                  </div>
-                </div>
               </div>
 
               {/* New section to display bookings */}
-              <table className="projects-table">
-                <thead>
-                  <tr>
-                    <th>Sr no.</th>
-                    <th>Title</th>
-                    <th className="text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bookings?.length > 0 ? (
-                    bookings?.map(
-                      (
-                        booking,
-                        index // Map through the projects
-                      ) => (
-                        <tr key={index}>
-                          <td>{index + 1}</td> {/* Display serial number */}
-                          <td>
-                            <p>{booking?.title}</p>{" "}
-                            {/* Adjust the property name based on your schema */}
-                          </td>
-                          <td>
-                            <Link
-                              to={`/admin/get-booking/${booking?._id}`}
-                              className="view_detail"
-                            >
-                              View Details
-                            </Link>
-                          </td>
-                        </tr>
-                      )
-                    )
-                  ) : (
-                    <tr>
-                      <td colSpan="3">
-                        No title image section available for this project.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
             </div>
           </div>
         </div>

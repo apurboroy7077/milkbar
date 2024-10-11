@@ -17,7 +17,6 @@ const EditImagesGroups = (props) => {
       setUpdatedValue({ srcOfRemovedGallaryImages: newValues });
     } else if (name.toLowerCase().includes("desktop")) {
       const oldValues = updateValue.srcOfRemovedDesktopImages;
-
       const newValues = [...oldValues, image];
       setUpdatedValue({ srcOfRemovedDesktopImages: newValues });
     } else if (name.toLowerCase().includes("mobile")) {
