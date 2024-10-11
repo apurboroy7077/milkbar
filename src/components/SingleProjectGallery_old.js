@@ -14,11 +14,15 @@ import Video2 from "../assets/videos/single-projectslider-video2.mp4";
 // import ReviewImage4 from '../assets/images/review-image-4.jpg';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
+import FeaturedImage from "./featured/FeaturedImage";
+import FeaturedMedia from "./featured/FeaturedMedia";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SingleProjectGallery() {
+const SingleProjectGallery = (props) => {
   const pinContainerRef = useRef(null);
-
+  const { project } = props;
+  const { galleryImages } = project;
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const changeWindowWidth = () => {
@@ -116,20 +120,15 @@ export default function SingleProjectGallery() {
             <div className="home_gallery_image position-relative gallery_image_1 z-2">
               <div className="home_gallery_image_sec">
                 {/* <img src={Gallery2} alt="Gallery" className="w-100 position-absolute" /> */}
-                <img
-                  src={Gallery1}
-                  alt="Gallery"
-                  className="w-100 position-absolute"
-                />
-
+                <FeaturedMedia featuredImage={galleryImages[2]} />
                 <div className="gallery_content gallery_content1 text-left">
-                  <h4 className="gallery_content_2">
+                  {/* <h4 className="gallery_content_2">
                     Working with you has been truly wonderful, and I'm delighted
                     to have found your business. You've transformed my brand
                     into something I'm proud to showcase, and you've truly
                     nailed it.
                   </h4>
-                  <h6 className="font-14">TORONTO-BASED DEVELOPER</h6>
+                  <h6 className="font-14">TORONTO-BASED DEVELOPER</h6> */}
                 </div>
               </div>
             </div>
@@ -137,55 +136,32 @@ export default function SingleProjectGallery() {
           <div className="home_gallery_middle d-flex justify-content-center nowrap">
             <div className="home_gallery_image position-relative gallery_image_2 slide-right">
               <div className="home_gallery_image_sec">
-                <video
-                  width="100%"
-                  height="100%"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
-                >
-                  <source src={Video} type="video/mp4" />
-                </video>
+                <FeaturedMedia featuredImage={galleryImages[0]} />
               </div>
             </div>
             <div className="home_gallery_image position-relative gallery_image_3 slide-left">
               <div className="home_gallery_image_sec">
-                <video
-                  width="100%"
-                  height="100%"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
-                >
-                  <source src={Video2} type="video/mp4" />
-                </video>
+                <FeaturedMedia featuredImage={galleryImages[3]} />
               </div>
               <div className="gallery_content gallery_content2 text-right">
-                <h4 className="gallery_content3">
+                {/* <h4 className="gallery_content3">
                   The Milkbar team are amazing to work and understood my vision
                   right from the beginning. Will definitely recommend Milkbar to
                   others in the luxury home space.
                 </h4>
-                <h6 className="font-14">HOUSE OF ONE MIAMI - LA</h6>
+                <h6 className="font-14">HOUSE OF ONE MIAMI - LA</h6> */}
               </div>
             </div>
           </div>
           <div className="home_gallery_bottom">
             <div className="home_gallery_image position-relative gallery_image_4">
               {/* <img src={Gallery4} alt="Gallery" className="w-100 position-absolute" /> */}
-              <img
-                src={Gallery3}
-                alt="Gallery"
-                className="w-100 position-absolute"
-              />
+              <FeaturedMedia featuredImage={galleryImages[1]} />
             </div>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
+export default SingleProjectGallery;

@@ -4,7 +4,9 @@ function WhatWeDo({ project, content }) {
   const [whatwedo, setWhatwedo] = useState([]);
 
   useEffect(() => {
-    setWhatwedo(project?.whatWeDo.split(","));
+    const { whatWeDo } = project;
+
+    setWhatwedo(whatWeDo);
   }, [project]);
 
   if (project) {

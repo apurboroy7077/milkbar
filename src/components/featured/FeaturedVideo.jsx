@@ -28,7 +28,7 @@ const FeaturedVideo = (props) => {
     <>
       <video
         ref={videoRef}
-        className="position-absolute h-full min-h-full w-full min-w-full object-fit-cover "
+        className="w-full h-full object-fit-cover "
         autoPlay
         loop
         muted
