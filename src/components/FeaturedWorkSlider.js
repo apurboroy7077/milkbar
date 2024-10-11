@@ -69,11 +69,6 @@ function FeaturedWorkSlider({ projects, title }) {
                             {project.description}
                           </p>
                         </div>
-                        <img
-                          src={WorkSlideLogo1}
-                          alt="logo"
-                          className="feature-signature"
-                        />
                         <div className="text-center d-flex justify-content-center project_link">
                           <Link
                             to={`/project/${project._id}`}

@@ -81,11 +81,11 @@ function FeaturedWorkSlider({ project }) {
             </Swiper>
           </div>
           <div className="w-full d-flex justify-content-center mt-[200px]">
-            <div className="max-w-[960px] d-flex">
-              <div className="w-[495px] h-[663px]">
+            <div className="max-w-[960px] w-full d-flex justify-content-center">
+              <div className="w-full max-w-[495px] max-h-[663px]">
                 <FeaturedMedia featuredImage={mobileImages[0]} />
               </div>
-              <div className="mt-[216px] w-[464px] h-[662px]">
+              <div className="mt-[216px] w-full max-w-[464px] max-h-[662px] project-mobile-image-2">
                 <FeaturedMedia featuredImage={mobileImages[1]} />
               </div>
             </div>

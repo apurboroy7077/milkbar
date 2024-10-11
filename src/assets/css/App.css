@@ -842,6 +842,7 @@ header .header_top nav > ul > li.expanded img {
   line-height: normal;
   letter-spacing: 0.5px;
   text-align: start;
+  margin-top: 12px;
 }
 .featured_work_slider
   .swiper-slide.swiper-slide-active
@@ -3439,8 +3440,17 @@ input[type="file"]::-webkit-file-upload-button {
     padding-left: 70px;
   }
 }
+@media (max-width: 959px) {
+  .project-mobile-image-2 {
+    margin-top: 55px !important;
+  }
+}
 
 @media (max-width: 768px) {
+  .common_work_slide_text .workbox_head h2,
+  .common_work_slide_text .workbox_head p {
+    text-align: center;
+  }
   .project_list_outer {
     padding: 0px 30px;
   }
@@ -4201,19 +4211,20 @@ input[type="file"]::-webkit-file-upload-button {
     height: 292px;
   }
   .gallery_image_2 {
-    max-width: 185px;
-    height: 229px;
+    width: 197px;
+    height: 230px;
   }
   .gallery_image_3 {
-    max-width: 247px;
-    height: 187px;
-    margin-top: 183px;
+    width: 256px;
+    height: 194px;
+    margin-top: 170px;
+    margin-left: 50px;
   }
   .gallery_image_4 {
-    width: 139.158px;
-    height: 245.866px;
+    width: 100px;
+    height: 140.442px;
     margin-left: 75px;
-    margin-top: -50px;
+    margin-top: -120px;
   }
   .home_gallery_middle {
     margin-top: -145px;
@@ -4298,11 +4309,6 @@ input[type="file"]::-webkit-file-upload-button {
   .contact_form_wrap .form-groups-container {
     flex-direction: column;
     gap: 0px;
-  }
-  .gallery_image_3 {
-    margin-top: 50px;
-    height: 333px;
-    margin-left: 50px;
   }
 }
 @media (max-width: 450px) {
