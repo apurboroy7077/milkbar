@@ -142,11 +142,12 @@ function ProjectDetails() {
                 <h2>Gallery Images</h2>
                 <div className="detail_item_inner gallery_inner">
                   <div className="detail_img_grid">
-                    {project?.images && project?.images.length > 0 ? (
-                      project?.images.map((image, index) => (
+                    {project?.galleryImages &&
+                    project?.galleryImages.length > 0 ? (
+                      project?.galleryImages.map((image, index) => (
                         <div className="detail_img_item" key={index}>
                           <img
-                            src={`${config.BASE_URL}${image}`}
+                            src={`${BACKEND_SERVER_ADDRESS}${image}`}
                             alt={`Project image ${index}`}
                           />
                         </div>
