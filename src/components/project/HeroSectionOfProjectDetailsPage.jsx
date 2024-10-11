@@ -2,6 +2,7 @@ import React from "react";
 import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
 import FeaturedImage from "../featured/FeaturedImage";
 import FeaturedVideo from "../featured/FeaturedVideo";
+import FeaturedMedia from "../featured/FeaturedMedia";
 
 const HeroSectionOfProjectDetailsPage = (props) => {
   const { project } = props;
@@ -56,18 +57,7 @@ const HeroSectionOfProjectDetailsPage = (props) => {
                 <div className="mt-20">
                   <div className="flex items-center justify-center">
                     <div className="w-[600px] h-[347px]">
-                      {/* <img
-                        src={`${BACKEND_SERVER_ADDRESS}${FeaturedImage}`}
-                        alt=""
-                        className="w-full h-full object-cover object-center"
-                      />{" "} */}
-                      <video autoPlay loop muted>
-                        <source
-                          src={`${BACKEND_SERVER_ADDRESS}${featuredImage}`}
-                          type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                      </video>
+                      <FeaturedMedia featuredImage={featuredImage} />
                     </div>
                   </div>
                 </div>

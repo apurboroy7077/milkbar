@@ -61,7 +61,7 @@ const FeaturedImage = (props) => {
       <img
         src={`${image}`}
         alt="Featured"
-        className="position-absolute h-100 w-100 object-fit-cover"
+        className="w-full h-full object-fit-cover"
       />
     </>
   );

@@ -15,13 +15,14 @@ import Video2 from "../assets/videos/single-projectslider-video2.mp4";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
+import FeaturedImage from "./featured/FeaturedImage";
+import FeaturedMedia from "./featured/FeaturedMedia";
 gsap.registerPlugin(ScrollTrigger);
 
 const SingleProjectGallery = (props) => {
   const pinContainerRef = useRef(null);
   const { project } = props;
   const { galleryImages } = project;
-  console.log(galleryImages);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const changeWindowWidth = () => {
@@ -119,12 +120,7 @@ const SingleProjectGallery = (props) => {
             <div className="home_gallery_image position-relative gallery_image_1 z-2">
               <div className="home_gallery_image_sec">
                 {/* <img src={Gallery2} alt="Gallery" className="w-100 position-absolute" /> */}
-                <img
-                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[2]}`}
-                  alt="Gallery"
-                  className="w-100 position-absolute"
-                />
-
+                <FeaturedMedia featuredImage={galleryImages[2]} />
                 <div className="gallery_content gallery_content1 text-left">
                   {/* <h4 className="gallery_content_2">
                     Working with you has been truly wonderful, and I'm delighted
@@ -140,44 +136,12 @@ const SingleProjectGallery = (props) => {
           <div className="home_gallery_middle d-flex justify-content-center nowrap">
             <div className="home_gallery_image position-relative gallery_image_2 slide-right">
               <div className="home_gallery_image_sec">
-                {/* <video
-                  width="100%"
-                  height="100%"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
-                >
-                  <source src={Video} type="video/mp4" />
-                </video> */}
-                <img
-                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[0]}`}
-                  width="100%"
-                  height="100%"
-                  className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
-                />
+                <FeaturedMedia featuredImage={galleryImages[0]} />
               </div>
             </div>
             <div className="home_gallery_image position-relative gallery_image_3 slide-left">
               <div className="home_gallery_image_sec">
-                {/* <video
-                  width="100%"
-                  height="100%"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
-                >
-                  <source src={Video2} type="video/mp4" />
-                </video> */}
-                <img
-                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[3]}`}
-                  width="100%"
-                  height="100%"
-                  className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
-                />
+                <FeaturedMedia featuredImage={galleryImages[3]} />
               </div>
               <div className="gallery_content gallery_content2 text-right">
                 {/* <h4 className="gallery_content3">
@@ -192,11 +156,7 @@ const SingleProjectGallery = (props) => {
           <div className="home_gallery_bottom">
             <div className="home_gallery_image position-relative gallery_image_4">
               {/* <img src={Gallery4} alt="Gallery" className="w-100 position-absolute" /> */}
-              <img
-                src={`${BACKEND_SERVER_ADDRESS}${galleryImages[1]}`}
-                alt="Gallery"
-                className="w-100 position-absolute"
-              />
+              <FeaturedMedia featuredImage={galleryImages[1]} />
             </div>
           </div>
         </div>

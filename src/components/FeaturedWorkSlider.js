@@ -134,7 +134,9 @@ function FeaturedWorkSlider({ projects, title }) {
                       <div className="common_work_slide  position-relative">
                         {project?.featuredImage && (
                           <>
-                            <FeaturedMedia data={project} />
+                            <FeaturedMedia
+                              featuredImage={project?.featuredImage}
+                            />
                           </>
                         )}
                         {/* <img src={SliderItem1} alt="Image" className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover" /> */}

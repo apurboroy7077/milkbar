@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 import config from "../config";
+import FeaturedMedia from "./featured/FeaturedMedia";
 
 function FeaturedWorkSlider({ project }) {
   const {
@@ -73,11 +74,7 @@ function FeaturedWorkSlider({ project }) {
                       className="seamless_booking_slide  position-relative"
                       key={index}
                     >
-                      <img
-                        src={`${config.BASE_URL}${image}`}
-                        alt={`Project image ${index}`}
-                        className="object-fit-cover"
-                      />
+                      <FeaturedMedia featuredImage={image} />
                     </div>
                   </SwiperSlide>
                 ))}
@@ -85,19 +82,11 @@ function FeaturedWorkSlider({ project }) {
           </div>
           <div className="w-full d-flex justify-content-center mt-[200px]">
             <div className="max-w-[960px] d-flex">
-              <div className="">
-                <img
-                  src={`${BACKEND_SERVER_ADDRESS}${mobileImages[0]}`}
-                  alt="mobile image"
-                  className="w-[495px] h-[663px]"
-                />
+              <div className="w-[495px] h-[663px]">
+                <FeaturedMedia featuredImage={mobileImages[0]} />
               </div>
-              <div className="mt-[216px]">
-                <img
-                  src={`${BACKEND_SERVER_ADDRESS}${mobileImages[1]}`}
-                  alt="mobile image"
-                  className="w-[464px] h-[662px]"
-                />
+              <div className="mt-[216px] w-[464px] h-[662px]">
+                <FeaturedMedia featuredImage={mobileImages[1]} />
               </div>
             </div>
           </div>

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import FeaturedImage from "./FeaturedImage";
 import FeaturedVideo from "./FeaturedVideo";
 
-const FeaturedMedia = (props) => {
-  const { data } = props;
-  const { featuredImage } = data;
+const FeaturedMedia = ({ featuredImage }) => {
   const [mediaStatus, setMediaStatus] = useState("");
   const checkingMediaHandler = () => {
     if (featuredImage) {
@@ -46,7 +44,7 @@ const FeaturedMedia = (props) => {
   };
   useEffect(() => {
     checkingMediaHandler();
-  }, [data]);
+  }, [featuredImage]);
 
   return (
     <>
