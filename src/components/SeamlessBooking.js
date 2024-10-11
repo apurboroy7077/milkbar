@@ -8,14 +8,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 import config from "../config";
 
 function FeaturedWorkSlider({ project }) {
-  const { desktopImages, designIntro, designTitle, designDescription } =
-    project;
+  const {
+    desktopImages,
+    mobileImages,
+    designIntro,
+    designTitle,
+    designDescription,
+  } = project;
   if (project) {
     return (
-      <div className="bg-white plr-100 text-dark">
+      <div className="bg-white text-dark">
         <div className="seamless_booking_slider position-relative z-1 ptb-120">
           <div className="seamless_booking_head text-center">
             <h6 className="text-uppercase letter-spacing-5 font-12 text-center">
@@ -27,14 +33,12 @@ function FeaturedWorkSlider({ project }) {
             <h2>{designTitle}</h2>
             <p className="font-messina">{designDescription}</p>
           </div>
-          <div className="seamless_booking_slider_wrapper position-relative pt-40">
+          <div className="seamless_booking_slider_wrapper position-relative pt-[40px]">
             <Swiper
               // install Swiper modules
               modules={[Navigation, A11y, Scrollbar]}
               freeMode={true}
               centeredSlides={true}
-              spaceBetween={70}
-              slidesPerView={3}
               navigation={{ nextEl: ".arrow-right", prevEl: ".arrow-left" }}
               scrollbar={{ draggable: true, el: ".swiper-custom-scrollbar" }}
               loop={true}
@@ -45,17 +49,25 @@ function FeaturedWorkSlider({ project }) {
                   centeredSlides: false,
                 },
                 769: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                   spaceBetween: 60,
                 },
                 1025: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
+                  spaceBetween: 100,
+                },
+                1440: {
+                  slidesPerView: 2,
+                  spaceBetween: 150,
+                },
+                1920: {
+                  slidesPerView: 4,
                   spaceBetween: 70,
                 },
               }}
             >
-              {project?.images && project?.images.length > 0 ? (
-                project?.desktopImages.map((image, index) => (
+              {desktopImages &&
+                desktopImages.map((image, index) => (
                   <SwiperSlide>
                     <div
                       className="seamless_booking_slide  position-relative"
@@ -68,17 +80,26 @@ function FeaturedWorkSlider({ project }) {
                       />
                     </div>
                   </SwiperSlide>
-                ))
-              ) : (
-                <p></p>
-              )}
+                ))}
             </Swiper>
-
-            {/* <div className="slider_nav d-flex align-items-center justify-content-center nowrap">                
-                            <button className="arrow-left arrow common_slider_arrow d-flex align-items-center justify-content-center"><img src={LeftArrow} alt="Image" /></button>
-                            <div className="swiper-custom-scrollbar slider_scrollbar"></div>
-                            <button className="arrow-right arrow common_slider_arrow d-flex align-items-center justify-content-center"><img src={RightArrow} alt="Image" /></button>
-                        </div> */}
+          </div>
+          <div className="w-full d-flex justify-content-center mt-[200px]">
+            <div className="max-w-[960px] d-flex">
+              <div className="">
+                <img
+                  src={`${BACKEND_SERVER_ADDRESS}${mobileImages[0]}`}
+                  alt="mobile image"
+                  className="w-[495px] h-[663px]"
+                />
+              </div>
+              <div className="mt-[216px]">
+                <img
+                  src={`${BACKEND_SERVER_ADDRESS}${mobileImages[1]}`}
+                  alt="mobile image"
+                  className="w-[464px] h-[662px]"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

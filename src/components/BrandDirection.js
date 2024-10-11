@@ -1,7 +1,9 @@
 import React from "react";
+import { BACKEND_SERVER_ADDRESS } from "../data/variables/variables-1";
 import BrandLogo from "../assets/images/meso.svg";
 
 function brandDirection({ project, brandSection }) {
+  const { projectLogo } = project;
   return (
     <>
       <div className="brand_direction position-relative">
@@ -13,15 +15,27 @@ function brandDirection({ project, brandSection }) {
           <p className="font-messina">{project?.brandDirection}</p>
           <div className="brand_logo d-flex align-items-center justify-content-center nowrap">
             <div className="common_brand_logo">
-              <div class="brand-text-white">{brandSection?.brandNameOne}</div>
+              <img
+                src={`${BACKEND_SERVER_ADDRESS}${projectLogo}`}
+                alt="project logo"
+                className="min-w-[231px] h-[30px]"
+              />
               {/* <img src={brandSection.brandNameOne} alt="Logo" /> */}
             </div>
             <div className="common_brand_logo active">
-              <div class="brand-text-white">{brandSection?.brandNameTwo}</div>
+              <img
+                src={`${BACKEND_SERVER_ADDRESS}${projectLogo}`}
+                alt="project logo"
+                className="min-w-[231px] h-[30px]"
+              />
               {/* <img src={BrandLogo} alt="Logo" /> */}
             </div>
             <div className="common_brand_logo">
-              <div class="brand-text-white">{brandSection?.brandNameThree}</div>
+              <img
+                src={`${BACKEND_SERVER_ADDRESS}${projectLogo}`}
+                alt="project logo"
+                className="min-w-[231px] h-[30px]"
+              />
               {/* <img src={BrandLogo} alt="Logo" /> */}
             </div>
           </div>

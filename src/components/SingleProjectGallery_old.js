@@ -152,7 +152,7 @@ const SingleProjectGallery = (props) => {
                   <source src={Video} type="video/mp4" />
                 </video> */}
                 <img
-                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[3]}`}
+                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[0]}`}
                   width="100%"
                   height="100%"
                   className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"
@@ -173,7 +173,7 @@ const SingleProjectGallery = (props) => {
                   <source src={Video2} type="video/mp4" />
                 </video> */}
                 <img
-                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[0]}`}
+                  src={`${BACKEND_SERVER_ADDRESS}${galleryImages[3]}`}
                   width="100%"
                   height="100%"
                   className="position-absolute top-0 start-0 h-100 w-100 object-fit-cover"

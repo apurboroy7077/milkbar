@@ -205,7 +205,7 @@ function FeaturedWorkSlider({ projects, title }) {
               </div>
             </div>
           )}
-        </div>{" "}
+        </div>
       </>
     );
   } else {
