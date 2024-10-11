@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import config from "../../config";
 import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
+import WhatWeDo from "../WhatWeDo";
 
 function ProjectDetails() {
   const { id } = useParams(); // Get the project ID from the URL
@@ -40,7 +41,7 @@ function ProjectDetails() {
     fetchProjectDetails();
     fetchBookings();
   }, [id]);
-
+  console.log(project);
   const handleDelete = async () => {
     try {
       await axios.delete(`${config.BASE_URL}/api/admin/delete-project/${id}`);
@@ -81,13 +82,39 @@ function ProjectDetails() {
               <div className="detail_item">
                 <h2>What we Do</h2>
                 <div className="detail_item_inner">
-                  <p>{project?.whatWeDo}</p>
+                  <ul className="flex flex-col gap-2">
+                    {project?.whatWeDo.map((data) => {
+                      return (
+                        <li key={Math.random()} className="text-sm">
+                          {data}
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
               </div>
               <div className="detail_item">
                 <h2>Brand Direction</h2>
                 <div className="detail_item_inner">
                   <p>{project?.brandDirection}</p>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Design Intro</h2>
+                <div className="detail_item_inner">
+                  <p>{project?.designIntro}</p>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Design Title</h2>
+                <div className="detail_item_inner">
+                  <p>{project?.designTitle}</p>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Design Description</h2>
+                <div className="detail_item_inner">
+                  <p>{project?.designDescription}</p>
                 </div>
               </div>
               <div className="detail_item">
@@ -142,7 +169,104 @@ function ProjectDetails() {
                   </div>
                 </div>
               </div>
-
+              <div className="detail_item">
+                <div className="detail_banner_wrap">
+                  <div className="detail_img_grid">
+                    {project?.bannerImage ? ( // No .length because it's a string
+                      <div className="detail_img_item">
+                        <h2>Project Logo</h2>
+                        <div className="bg-[black] px-5 py-3 rounded-lg">
+                          <img
+                            src={`${config.BASE_URL}${project?.projectLogo}`}
+                            alt="Banner"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <p>No image available.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Desktop Images</h2>
+                <div className="detail_item_inner gallery_inner">
+                  <div className="detail_img_grid">
+                    {project?.desktopImages &&
+                    project?.desktopImages.length > 0 ? (
+                      project?.desktopImages.map((image, index) => (
+                        <div className="detail_img_item" key={index}>
+                          <img
+                            src={`${config.BASE_URL}${image}`}
+                            alt={`Project image ${index}`}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      <p>No images available.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Desktop Images</h2>
+                <div className="detail_item_inner gallery_inner">
+                  <div className="detail_img_grid">
+                    {project?.desktopImages &&
+                    project?.desktopImages.length > 0 ? (
+                      project?.desktopImages.map((image, index) => (
+                        <div className="detail_img_item" key={index}>
+                          <img
+                            src={`${config.BASE_URL}${image}`}
+                            alt={`Project image ${index}`}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      <p>No images available.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Mobile Images</h2>
+                <div className="detail_item_inner gallery_inner">
+                  <div className="detail_img_grid">
+                    {project?.mobileImages &&
+                    project?.mobileImages.length > 0 ? (
+                      project?.mobileImages.map((image, index) => (
+                        <div className="detail_img_item" key={index}>
+                          <img
+                            src={`${config.BASE_URL}${image}`}
+                            alt={`Project image ${index}`}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      <p>No images available.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="detail_item">
+                <h2>Images</h2>
+                <div className="detail_item_inner gallery_inner">
+                  <div className="detail_img_grid">
+                    {project?.images && project?.images.length > 0 ? (
+                      project?.images.map((image, index) => (
+                        <div className="detail_img_item" key={index}>
+                          <img
+                            src={`${config.BASE_URL}${image}`}
+                            alt={`Project image ${index}`}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      <p>No images available.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
               <div className="detail_project_btn_wrap">
                 <div className="detail_edit_del">
                   <div className="btn_item">

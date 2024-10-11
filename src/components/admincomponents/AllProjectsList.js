@@ -87,7 +87,7 @@ function AllProjectlist() {
                           index // Map through the projects
                         ) => {
                           const { _id } = project;
-                          console.log(_id);
+
                           return (
                             <tr key={project._id}>
                               <td>
