@@ -229,26 +229,7 @@ function ProjectDetails() {
                   </div>
                 </div>
               </div>
-              <div className="detail_item">
-                <h2>Desktop Images</h2>
-                <div className="detail_item_inner gallery_inner">
-                  <div className="detail_img_grid">
-                    {project?.desktopImages &&
-                    project?.desktopImages.length > 0 ? (
-                      project?.desktopImages.map((image, index) => (
-                        <div className="detail_img_item" key={index}>
-                          <img
-                            src={`${config.BASE_URL}${image}`}
-                            alt={`Project image ${index}`}
-                          />
-                        </div>
-                      ))
-                    ) : (
-                      <p>No images available.</p>
-                    )}
-                  </div>
-                </div>
-              </div>
+
               <div className="detail_item">
                 <h2>Mobile Images</h2>
                 <div className="detail_item_inner gallery_inner">
