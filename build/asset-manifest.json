@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.35e10316.css",
-    "main.js": "/static/js/main.02dc16d4.js",
+    "main.css": "/static/css/main.c577c292.css",
+    "main.js": "/static/js/main.5d9890c1.js",
     "static/js/453.ac68fc45.chunk.js": "/static/js/453.ac68fc45.chunk.js",
     "static/media/milkbarHomeDesktop.mp4": "/static/media/milkbarHomeDesktop.08319dbf2c41ca3d6c03.mp4",
     "static/media/single-projectslider-video.mp4": "/static/media/single-projectslider-video.9c7a460e51e7a49feaa7.mp4",
@@ -79,12 +79,12 @@
     "static/media/right-arrow.svg": "/static/media/right-arrow.8b3e885786b79543a555c22237ae0fb6.svg",
     "static/media/right_arrow_icon.svg": "/static/media/right_arrow_icon.eb870744a4ad36e7d3dafc00dfb50131.svg",
     "static/media/down_arrow_icon.svg": "/static/media/down_arrow_icon.cf29fd5f3f9da6c0844c8ea84dc26202.svg",
-    "main.35e10316.css.map": "/static/css/main.35e10316.css.map",
-    "main.02dc16d4.js.map": "/static/js/main.02dc16d4.js.map",
+    "main.c577c292.css.map": "/static/css/main.c577c292.css.map",
+    "main.5d9890c1.js.map": "/static/js/main.5d9890c1.js.map",
     "453.ac68fc45.chunk.js.map": "/static/js/453.ac68fc45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35e10316.css",
-    "static/js/main.02dc16d4.js"
+    "static/css/main.c577c292.css",
+    "static/js/main.5d9890c1.js"
   ]
 }
