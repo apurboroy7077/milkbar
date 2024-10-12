@@ -65,7 +65,11 @@ const HeroSectionOfProjectDetailsPage = (props) => {
                   {title}
                 </div>
                 <div className="d-flex justify-content-center mt-[24px]">
-                  <img src={`${BACKEND_SERVER_ADDRESS}${projectLogo}`} alt="" />
+                  <img
+                    src={`${BACKEND_SERVER_ADDRESS}${projectLogo}`}
+                    alt=""
+                    className="w-[275px] h-[35px]"
+                  />
                 </div>
               </div>
             </div>
