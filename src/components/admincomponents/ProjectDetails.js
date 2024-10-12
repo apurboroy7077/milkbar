@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import config from "../../config";
 import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
 import WhatWeDo from "../WhatWeDo";
+import FeaturedMedia from "../featured/FeaturedMedia";
 
 function ProjectDetails() {
   const { id } = useParams(); // Get the project ID from the URL
@@ -18,7 +19,7 @@ function ProjectDetails() {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-project/${id}`
+          `${BACKEND_SERVER_ADDRESS}/api/admin/get-project/${id}`
         );
         setProject(response.data); // Set the fetched project details
       } catch (err) {
@@ -31,7 +32,7 @@ function ProjectDetails() {
     const fetchBookings = async () => {
       try {
         const response = await axios.get(
-          `${config.BASE_URL}/api/admin/get-bookings/${id}`
+          `${BACKEND_SERVER_ADDRESS}/api/admin/get-bookings/${id}`
         );
         setBookings(response.data); // Set the fetched bookings
       } catch (err) {
@@ -146,10 +147,7 @@ function ProjectDetails() {
                     project?.galleryImages.length > 0 ? (
                       project?.galleryImages.map((image, index) => (
                         <div className="detail_img_item" key={index}>
-                          <img
-                            src={`${BACKEND_SERVER_ADDRESS}${image}`}
-                            alt={`Project image ${index}`}
-                          />
+                          <FeaturedMedia featuredImage={image} />
                         </div>
                       ))
                     ) : (
@@ -165,10 +163,7 @@ function ProjectDetails() {
                       <div className="detail_img_item">
                         <h2>Banner Image</h2>
                         <div className="banner_img_wrap">
-                          <img
-                            src={`${config.BASE_URL}${project?.bannerImage}`}
-                            alt="Banner"
-                          />
+                          <FeaturedMedia featuredImage={project.bannerImage} />
                         </div>
                       </div>
                     ) : (
@@ -179,9 +174,8 @@ function ProjectDetails() {
                       <div className="detail_img_item">
                         <h2>Featured Image</h2>
                         <div className="banner_img_wrap">
-                          <img
-                            src={`${BACKEND_SERVER_ADDRESS}${project?.featuredImage}`}
-                            alt="Featured"
+                          <FeaturedMedia
+                            featuredImage={project?.featuredImage}
                           />
                         </div>
                       </div>
@@ -198,10 +192,7 @@ function ProjectDetails() {
                       <div className="detail_img_item">
                         <h2>Project Logo</h2>
                         <div className="bg-[black] px-5 py-3 rounded-lg">
-                          <img
-                            src={`${config.BASE_URL}${project?.projectLogo}`}
-                            alt="Banner"
-                          />
+                          <FeaturedMedia featuredImage={project?.projectLogo} />
                         </div>
                       </div>
                     ) : (
@@ -218,10 +209,7 @@ function ProjectDetails() {
                     project?.desktopImages.length > 0 ? (
                       project?.desktopImages.map((image, index) => (
                         <div className="detail_img_item" key={index}>
-                          <img
-                            src={`${config.BASE_URL}${image}`}
-                            alt={`Project image ${index}`}
-                          />
+                          <FeaturedMedia featuredImage={image} />
                         </div>
                       ))
                     ) : (
@@ -239,10 +227,7 @@ function ProjectDetails() {
                     project?.mobileImages.length > 0 ? (
                       project?.mobileImages.map((image, index) => (
                         <div className="detail_img_item" key={index}>
-                          <img
-                            src={`${config.BASE_URL}${image}`}
-                            alt={`Project image ${index}`}
-                          />
+                          <FeaturedMedia featuredImage={image} />
                         </div>
                       ))
                     ) : (

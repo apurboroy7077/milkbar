@@ -6,6 +6,7 @@ import EditImagesGroups from "./edit-images-groups/EditImagesGroups";
 import useUpdateValue from "../../hooks/update-project/useUpdateValue";
 import EditWhatDoWeDo from "./edit-images-groups/EditWhatDoWeDo";
 import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
+import FeaturedMedia from "../featured/FeaturedMedia";
 
 function UpdateProject() {
   const [loadingStatus, setLoadingStatus] = useState("INITIAL");
@@ -482,10 +483,7 @@ function UpdateProject() {
                   {project?.bannerImage ? (
                     <div className="detail_img_item">
                       <div className="banner_img_wrap">
-                        <img
-                          src={`${BACKEND_SERVER_ADDRESS}${project?.bannerImage}`}
-                          alt="Banner"
-                        />
+                        <FeaturedMedia featuredImage={project?.bannerImage} />
                       </div>
                       <button
                         className="remove_btn"
@@ -513,9 +511,8 @@ function UpdateProject() {
                     {project?.featuredImage ? (
                       <div className="detail_img_item">
                         <div className="banner_img_wrap">
-                          <img
-                            src={`${BACKEND_SERVER_ADDRESS}${project?.featuredImage}`}
-                            alt="Featured"
+                          <FeaturedMedia
+                            featuredImage={project?.featuredImage}
                           />
                         </div>
                         <button
@@ -551,14 +548,12 @@ function UpdateProject() {
                   {project?.bannerImage ? (
                     <div className="detail_img_item">
                       <div className="bg-[black] px-5 py-5 rounded-md">
-                        <img
-                          src={`${BACKEND_SERVER_ADDRESS}${project.projectLogo}`}
-                        />
+                        <FeaturedMedia featuredImage={project?.projectLogo} />
                       </div>
                       <button
                         className="remove_btn"
                         type="button"
-                        onClick={() => handleRemoveImage(project?.bannerImage)}
+                        onClick={() => handleRemoveImage(project?.projectLogo)}
                       >
                         Remove
                       </button>
