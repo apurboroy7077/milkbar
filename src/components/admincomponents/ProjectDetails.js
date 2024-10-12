@@ -5,8 +5,13 @@ import config from "../../config";
 import { BACKEND_SERVER_ADDRESS } from "../../data/variables/variables-1";
 import WhatWeDo from "../WhatWeDo";
 import FeaturedMedia from "../featured/FeaturedMedia";
+import useBasic from "../../hooks/useBasics/useBasics";
 
 function ProjectDetails() {
+  const openModal = useBasic((state) => state.openModal);
+  const setIdOfItemSelectedToBeDeleted = useBasic(
+    (state) => state.setIdOfItemSelectedToBeDeleted
+  );
   const { id } = useParams(); // Get the project ID from the URL
   const [project, setProject] = useState(null);
   const [bookings, setBookings] = useState([]); // State to hold bookings
@@ -43,7 +48,7 @@ function ProjectDetails() {
     fetchProjectDetails();
     fetchBookings();
   }, [id]);
-  console.log(project);
+
   const handleDelete = async () => {
     try {
       await axios.delete(
@@ -57,21 +62,23 @@ function ProjectDetails() {
   };
 
   const handleDelete2 = () => {
-    const dataForServer = { id };
-    setDeleteButtonStatus("LOADING");
-    axios
-      .post(
-        `${BACKEND_SERVER_ADDRESS}/api/admin/delete-project/v2`,
-        dataForServer
-      )
-      .then((response) => {
-        console.log(response);
-        setDeleteButtonStatus("SUCCESS");
-      })
-      .catch((error) => {
-        console.log(error);
-        setDeleteButtonStatus("FAILED");
-      });
+    openModal();
+    setIdOfItemSelectedToBeDeleted(id);
+    // const dataForServer = { id };
+    // setDeleteButtonStatus("LOADING");
+    // axios
+    //   .post(
+    //     `${BACKEND_SERVER_ADDRESS}/api/admin/delete-project/v2`,
+    //     dataForServer
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //     setDeleteButtonStatus("SUCCESS");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setDeleteButtonStatus("FAILED");
+    //   });
   };
 
   if (loading) return <p>Loading...</p>;

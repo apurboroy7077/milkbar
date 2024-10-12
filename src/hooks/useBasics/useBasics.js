@@ -1,7 +1,12 @@
 import { create } from "zustand";
 
-const useBasic = create((set) => ({
+const initialState = {
   screenSize: "SMALL_SCREEN",
+  modalStatus: "CLOSED",
+  idOfItemSelectedToBeDeleted: "",
+};
+const useBasic = create((set) => ({
+  ...initialState,
   setScreenSize: (screenWidth) => {
     let myScreenSize;
     if (screenWidth < 768) {
@@ -14,6 +19,24 @@ const useBasic = create((set) => ({
     set((state) => ({
       ...state,
       screenSize: myScreenSize,
+    }));
+  },
+  openModal: () => {
+    set((state) => ({
+      ...state,
+      modalStatus: "OPENED",
+    }));
+  },
+  closeModal: () => {
+    set((state) => ({
+      ...state,
+      modalStatus: "CLOSED",
+    }));
+  },
+  setIdOfItemSelectedToBeDeleted: (id) => {
+    set((state) => ({
+      ...state,
+      idOfItemSelectedToBeDeleted: id,
     }));
   },
 }));

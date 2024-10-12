@@ -31,9 +31,12 @@ import ServiceList from "./pages/admin/ServiceList";
 import AboutPage2 from "./pages/AboutPage2";
 import useStartup from "./hooks/useStartup/useStartup";
 import UpdateFeatured from "./pages/admin/featured/UpdateFeatured";
+import useBasic from "./hooks/useBasics/useBasics";
+import MyModal from "./components/modal/MyModal";
 
 function App() {
   useStartup();
+  const modalStatus = useBasic((state) => state.modalStatus);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const isAdminRoute = window.location.pathname.startsWith("/admin");
@@ -222,6 +225,7 @@ function App() {
           }
         />
       </Routes>
+      {modalStatus === "OPENED" && <MyModal />}
     </BrowserRouter>
   );
 }
