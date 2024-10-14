@@ -1149,7 +1149,7 @@ a.follow_button {
 .contact_form_wrap .form-group.textareafld label {
   color: #fff;
   font-family: "SF Pro Rounded";
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
@@ -1189,7 +1189,7 @@ a.follow_button {
 .what-do-you-need-label {
   color: #fff;
   font-family: "SF Pro Rounded";
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
@@ -1235,7 +1235,7 @@ a.follow_button {
 .contact_form_wrap button {
   background: transparent;
   border: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 .contact_form_wrap button::after {
   width: 95px;
