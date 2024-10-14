@@ -81,19 +81,20 @@ export default function SingleProjectGallery() {
             </div>
             <img src={Gallery2} alt="gallery-2" />
             <p
-              className="gallery-review-title "
-              style={{ fontSize: "0.75rem" }}
+              className="gallery-review-title text-start"
+              style={{ fontSize: "12px", textAlign: "left" }}
             >
               Tokyo-based coffee company
             </p>
           </div>
         </div>
         <div className="gallery-bottom-container">
-          <div className="gallery-content-3">
+          <div className="gallery-content-3 ">
             <img src={Gallery3} alt="gallery-3" />
+
             <p
-              className="gallery-review-title  w-full text-end"
-              style={{ fontSize: "0.75rem" }}
+              className="gallery-review-title messina-sans  w-full  m-0 "
+              style={{ fontSize: "12px", textAlign: "left" }}
             >
               Members-only dating app - launching late 2024
             </p>
