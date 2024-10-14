@@ -169,21 +169,21 @@ function Work() {
                   <div className="lg:w-[60%]">
                     <div className="mt-16 lg:mt-0">
                       <div className="flex justify-between items-end">
-                        <div className="w-[30%] rounded-lg overflow-hidden transition-all duration-700 hover:translate-y-[-1rem] cursor-pointer">
+                        <div className="w-[32%] rounded-lg overflow-hidden transition-all duration-700 hover:translate-y-[-1rem] cursor-pointer">
                           <img
                             src="/images/landing-page/updated-mobile-2.png"
                             alt=""
                             className="w-full"
                           />
                         </div>
-                        <div className="w-[30%] rounded-lg overflow-hidden transition-all duration-700 hover:translate-y-[-1rem] cursor-pointer">
+                        <div className="w-[32%] rounded-lg overflow-hidden transition-all duration-700 hover:translate-y-[-1rem] cursor-pointer">
                           <img
                             src="/images/landing-page/updated-mobile-3.png"
                             alt=""
                             className="w-full"
                           />
                         </div>
-                        <div className="w-[30%] rounded-lg overflow-hidden transition-all duration-700 hover:translate-y-[-1rem] cursor-pointer">
+                        <div className="w-[32%] rounded-lg overflow-hidden transition-all duration-700 hover:translate-y-[-1rem] cursor-pointer">
                           <img
                             src="/images/landing-page/updated-mobile-1.png"
                             alt=""
