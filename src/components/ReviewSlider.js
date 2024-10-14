@@ -52,7 +52,15 @@ export default function ReviewSlider() {
             slidesPerView: 3,
           },
           1025: {
-            spaceBetween: 150,
+            spaceBetween: 100,
+            slidesPerView: 3,
+          },
+          1025: {
+            spaceBetween: 100,
+            slidesPerView: 3,
+          },
+          1280: {
+            spaceBetween: 200,
             slidesPerView: 3,
           },
         }}
