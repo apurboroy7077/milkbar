@@ -151,9 +151,9 @@ function Work() {
                 <div className="lg:flex max-w-screen-xl w-full lg:justify-between">
                   <div className="lg:w-[30%]">
                     <div className="text-[white]  text-xl lg:text-3xl">
-                      Work
+                      work
                     </div>
-                    <div className="mt-16 lg:mt-32 text-xs lg:text-xs text-[white] opacity-[0.6] ">
+                    <div className="mt-24 lg:mt-32 text-xs lg:text-xs text-[white] opacity-[0.6] ">
                       FEATURED
                     </div>
                     <div className="text-[white] mt-5 lg:mt-7 opacity-[0.75] lg:text-2xl">
