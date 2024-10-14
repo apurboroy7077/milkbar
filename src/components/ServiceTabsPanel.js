@@ -246,7 +246,7 @@ function ServiceTabsPanel() {
                   }}
                 >
                   <div className="service-name">
-                    <h3>{item.title}</h3>
+                    <h3 className="">{item.title}</h3>
                   </div>
                   <div className="service_desc">
                     <span className="icon">
@@ -315,7 +315,10 @@ function ServiceTabsPanel() {
                   <div className="showonmobile service-tab-mobile">
                     <div className="wrapper">
                       <div className="tab_content_heading">
-                        <h3> {services[index].title}</h3>
+                        <h3 className="" style={{ fontSize: "28px" }}>
+                          {" "}
+                          {services[index].title}
+                        </h3>
                       </div>
                       <div className="tab_content_wrapper">
                         {/* <ul>
@@ -326,6 +329,8 @@ function ServiceTabsPanel() {
                                                 </ul> */}
 
                         <p
+                          className=" mt-5 "
+                          style={{ fontSize: "16px" }}
                           dangerouslySetInnerHTML={{
                             __html: renderDescription(item.des),
                           }}

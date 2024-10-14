@@ -41,18 +41,20 @@ export default function SingleProjectGallery() {
           </div>
         </div> */}
         <div className="gallery-title-content text-center ">
-          <h3 className="lg:text-2xl opacity-[0.85]">
+          <h3 className="text-[28px] opacity-[0.85]">
             full stack development meets experiential design
           </h3>
-          <div className="flex justify-center items-center mt-5 lg:mt-7">
+          <div className="flex justify-center items-center mt-7 lg:mt-7">
             <div className="bg-[#A2BB3C] h-[0.4rem] w-[0.4rem] rounded-full"></div>
           </div>
-          <ul className="mt-5 lg:mt-10 flex flex-col gap-2 lg:gap-5">
-            <li className="text-sm lg:text-lg opacity-60 ">app development</li>
-            <li className="text-sm lg:text-lg opacity-60">
+          <ul className="mt-6 lg:mt-10 flex flex-col gap-2 lg:gap-5">
+            <li className="text-[16px] lg:text-lg opacity-60 ">
+              app development
+            </li>
+            <li className="text-[16px] lg:text-lg opacity-60">
               custom data management solutions
             </li>
-            <li className="text-sm lg:text-lg opacity-60">
+            <li className="text-[16px] lg:text-lg opacity-60">
               app integration meets branded ux
             </li>
           </ul>
@@ -79,19 +81,20 @@ export default function SingleProjectGallery() {
             </div>
             <img src={Gallery2} alt="gallery-2" />
             <p
-              className="gallery-review-title "
-              style={{ fontSize: "0.75rem" }}
+              className="gallery-review-title text-start"
+              style={{ fontSize: "12px", textAlign: "left" }}
             >
               Tokyo-based coffee company
             </p>
           </div>
         </div>
         <div className="gallery-bottom-container">
-          <div className="gallery-content-3">
+          <div className="gallery-content-3 ">
             <img src={Gallery3} alt="gallery-3" />
+
             <p
-              className="gallery-review-title  w-full text-end"
-              style={{ fontSize: "0.75rem" }}
+              className="gallery-review-title messina-sans  w-full  m-0 "
+              style={{ fontSize: "12px", textAlign: "left" }}
             >
               Members-only dating app - launching late 2024
             </p>
