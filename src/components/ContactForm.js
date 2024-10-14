@@ -74,6 +74,7 @@ function ContactForm() {
                   type="text"
                   placeholder="name"
                   required
+                  className="name-input-of-contact-page"
                 />
               </div>
               <div className="form-group">
@@ -82,6 +83,7 @@ function ContactForm() {
                   type="email"
                   placeholder="email"
                   required
+                  className="email-input-of-contact-page"
                 />
               </div>
             </div>
@@ -182,9 +184,6 @@ function ContactForm() {
                     for="budgetRadios6"
                     className="form-check-label"
                     onClick={handleClickHelpingSubject}
-                    style={{
-                      fontSize: "16px",
-                    }}
                   >
                     hospitality consulting
                   </label>

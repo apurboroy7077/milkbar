@@ -1172,7 +1172,7 @@ a.follow_button {
   width: 100%;
   background: transparent;
   border-width: 0 0 0.6px 0;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "SF Pro Rounded";
   letter-spacing: 0.05px;
   margin: 0 auto;
@@ -1206,7 +1206,7 @@ a.follow_button {
   text-align: center;
   padding-bottom: 25px;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "SF Pro Rounded";
   border-bottom: 0.6px solid #fff;
   max-width: 360px;
