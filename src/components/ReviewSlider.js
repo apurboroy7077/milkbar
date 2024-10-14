@@ -52,16 +52,16 @@ export default function ReviewSlider() {
             slidesPerView: 3,
           },
           1025: {
-            spaceBetween: 12,
+            spaceBetween: 100,
             slidesPerView: 3,
           },
         }}
         className="mySwiper"
       >
         <div className="swiper-wrapper">
-          <SwiperSlide>
-            <div className="review-slide-1">
-              <p>
+          <SwiperSlide className="">
+            <div className="review-slide-1 ">
+              <p className="">
                 Working with you has been truly wonderful, and I'm delighted to
                 have found your business. You've transformed my brand into
                 something I'm proud to showcase, and you've truly nailed it.
@@ -70,10 +70,18 @@ export default function ReviewSlider() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="review-slide-2">
-              <div className="whatsapp-review">
-                <img src={WhatsappLogo} alt="whastapp-review-logo" />
-                <img src={WhatsappLogo2} alt="whastapp-review-logo" />
+            <div className="review-slide-2  w-full">
+              <div className="whatsapp-review min-w-full">
+                <img
+                  src={WhatsappLogo}
+                  alt="whastapp-review-logo"
+                  className="min-w-full"
+                />
+                <img
+                  src={WhatsappLogo2}
+                  alt="whastapp-review-logo"
+                  className="min-w-full"
+                />
               </div>
               <div className="other-contact-review">
                 <img src={WomanLogo} alt="woman-logo" />
@@ -85,8 +93,8 @@ export default function ReviewSlider() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="review-slide-1">
-              <p>
+            <div className="review-slide-1 ">
+              <p className="">
                 Working with you has been truly wonderful, and I'm delighted to
                 have found your business. You've transformed my brand into
                 something I'm proud to showcase, and you've truly nailed it.
@@ -95,7 +103,7 @@ export default function ReviewSlider() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="review-slide-1">
+            <div className="review-slide-1 ">
               <p>
                 Working with you has been truly wonderful, and I'm delighted to
                 have found your business. You've transformed my brand into
