@@ -41,18 +41,20 @@ export default function SingleProjectGallery() {
           </div>
         </div> */}
         <div className="gallery-title-content text-center ">
-          <h3 className="lg:text-2xl opacity-[0.85]">
+          <h3 className="text-[28px] opacity-[0.85]">
             full stack development meets experiential design
           </h3>
-          <div className="flex justify-center items-center mt-5 lg:mt-7">
+          <div className="flex justify-center items-center mt-7 lg:mt-7">
             <div className="bg-[#A2BB3C] h-[0.4rem] w-[0.4rem] rounded-full"></div>
           </div>
-          <ul className="mt-5 lg:mt-10 flex flex-col gap-2 lg:gap-5">
-            <li className="text-sm lg:text-lg opacity-60 ">app development</li>
-            <li className="text-sm lg:text-lg opacity-60">
+          <ul className="mt-6 lg:mt-10 flex flex-col gap-2 lg:gap-5">
+            <li className="text-[16px] lg:text-lg opacity-60 ">
+              app development
+            </li>
+            <li className="text-[16px] lg:text-lg opacity-60">
               custom data management solutions
             </li>
-            <li className="text-sm lg:text-lg opacity-60">
+            <li className="text-[16px] lg:text-lg opacity-60">
               app integration meets branded ux
             </li>
           </ul>
