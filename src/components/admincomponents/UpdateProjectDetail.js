@@ -485,13 +485,6 @@ function UpdateProject() {
                       <div className="banner_img_wrap">
                         <FeaturedMedia featuredImage={project?.bannerImage} />
                       </div>
-                      <button
-                        className="remove_btn"
-                        type="button"
-                        onClick={() => handleRemoveImage(project?.bannerImage)}
-                      >
-                        Remove
-                      </button>
                     </div>
                   ) : (
                     <p>No image available.</p>
@@ -515,15 +508,6 @@ function UpdateProject() {
                             featuredImage={project?.featuredImage}
                           />
                         </div>
-                        <button
-                          className="remove_btn"
-                          type="button"
-                          onClick={() =>
-                            handleRemoveImage(project?.featuredImage)
-                          }
-                        >
-                          Remove
-                        </button>
                       </div>
                     ) : (
                       <p>No image available.</p>
@@ -545,18 +529,11 @@ function UpdateProject() {
                       ref={bannerImageRef}
                     />
                   </div>
-                  {project?.bannerImage ? (
+                  {project?.projectLogo ? (
                     <div className="detail_img_item">
                       <div className="bg-[black] px-5 py-5 rounded-md">
                         <FeaturedMedia featuredImage={project?.projectLogo} />
                       </div>
-                      <button
-                        className="remove_btn"
-                        type="button"
-                        onClick={() => handleRemoveImage(project?.projectLogo)}
-                      >
-                        Remove
-                      </button>
                     </div>
                   ) : (
                     <p>No image available.</p>
