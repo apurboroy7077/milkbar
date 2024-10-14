@@ -1158,7 +1158,7 @@ a.follow_button {
 }
 .option_types_radios input[type="checkbox"] + label {
   padding: 20px 45px 17px;
-  font-size: 18px;
+  font-size: 14px;
   display: inline-block;
   font-family: "SF Pro Rounded";
   text-transform: inherit;
@@ -1235,7 +1235,7 @@ a.follow_button {
 .contact_form_wrap button {
   background: transparent;
   border: none;
-  font-size: 16px;
+  font-size: 12px;
 }
 .contact_form_wrap button::after {
   width: 95px;

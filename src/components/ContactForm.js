@@ -74,9 +74,6 @@ function ContactForm() {
                   type="text"
                   placeholder="name"
                   required
-                  style={{
-                    fontSize: "16px",
-                  }}
                 />
               </div>
               <div className="form-group">
@@ -85,19 +82,11 @@ function ContactForm() {
                   type="email"
                   placeholder="email"
                   required
-                  style={{
-                    fontSize: "16px",
-                  }}
                 />
               </div>
             </div>
             <div className="form-group option-type-form">
-              <label
-                className="what-do-you-need-label"
-                style={{
-                  fontSize: "16px",
-                }}
-              >
+              <label className="what-do-you-need-label">
                 what do you need help with?
               </label>
               <div class="option_types_radios d-flex flex-wrap">
@@ -107,18 +96,12 @@ function ContactForm() {
                     type="checkbox"
                     id="budgetRadios1"
                     className="form-check-input"
-                    style={{
-                      fontSize: "16px",
-                    }}
                   />
                   <label
                     title=""
                     for="budgetRadios1"
                     className="form-check-label"
                     onClick={handleClickHelpingSubject}
-                    style={{
-                      fontSize: "16px",
-                    }}
                   >
                     branding
                   </label>
@@ -135,9 +118,6 @@ function ContactForm() {
                     for="budgetRadios2"
                     className="form-check-label"
                     onClick={handleClickHelpingSubject}
-                    style={{
-                      fontSize: "16px",
-                    }}
                   >
                     web design
                   </label>
@@ -154,9 +134,6 @@ function ContactForm() {
                     for="budgetRadios3"
                     className="form-check-label"
                     onClick={handleClickHelpingSubject}
-                    style={{
-                      fontSize: "16px",
-                    }}
                   >
                     web development
                   </label>
@@ -173,9 +150,6 @@ function ContactForm() {
                     for="budgetRadios4"
                     className="form-check-label"
                     onClick={handleClickHelpingSubject}
-                    style={{
-                      fontSize: "16px",
-                    }}
                   >
                     social media
                   </label>
@@ -192,9 +166,6 @@ function ContactForm() {
                     for="budgetRadios5"
                     className="form-check-label"
                     onClick={handleClickHelpingSubject}
-                    style={{
-                      fontSize: "16px",
-                    }}
                   >
                     advertising
                   </label>
@@ -221,12 +192,7 @@ function ContactForm() {
               </div>
             </div>
             <div className="form-group textareafld ">
-              <label
-                className="font-18 font-sfpro letter-spacing-5 mb-10 d-flex"
-                style={{
-                  fontSize: "16px",
-                }}
-              >
+              <label className="font-18 font-sfpro letter-spacing-5 mb-10 d-flex">
                 let us know about your situation
               </label>
               <textarea
@@ -234,9 +200,6 @@ function ContactForm() {
                 placeholder=""
                 required
                 className=""
-                style={{
-                  fontSize: "16px",
-                }}
               />
             </div>
             <div className="form-group send-message">
@@ -244,9 +207,6 @@ function ContactForm() {
                 <button
                   type="submit"
                   className="send-message-btn underline_link"
-                  style={{
-                    fontSize: "14px",
-                  }}
                 >
                   Send Message
                 </button>
@@ -256,9 +216,6 @@ function ContactForm() {
                   disabled
                   type="button"
                   className="send-message-btn underline_link"
-                  style={{
-                    fontSize: "16px",
-                  }}
                 >
                   Sending <i class="fa-solid fa-spinner animate-spin"></i>
                 </button>
@@ -268,9 +225,6 @@ function ContactForm() {
                   disabled
                   type="button"
                   className="send-message-btn underline_link"
-                  style={{
-                    fontSize: "16px",
-                  }}
                 >
                   Message Sent <i className="fa-solid fa-check ml-3"></i>
                 </button>
@@ -279,9 +233,6 @@ function ContactForm() {
                 <button
                   type="submit"
                   className="send-message-btn underline_link"
-                  style={{
-                    fontSize: "16px",
-                  }}
                 >
                   FAILED, Try Again
                 </button>
