@@ -40,22 +40,22 @@ export default function ReviewSlider() {
         breakpoints={{
           320: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 50,
             centeredSlides: true,
           },
           550: {
-            spaceBetween: 15,
+            spaceBetween: 70,
             slidesPerView: 2,
           },
           768: {
-            spaceBetween: 15,
+            spaceBetween: 70,
             slidesPerView: 3,
           },
           1025: {
             spaceBetween: 100,
             slidesPerView: 3,
           },
-          1025: {
+          1024: {
             spaceBetween: 100,
             slidesPerView: 3,
           },
